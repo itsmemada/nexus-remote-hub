@@ -1,0 +1,302 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+type Post = CollectionEntry<'blog'>;
+
+// Get all blog posts and sort by date
+const allPosts = await getCollection('blog');
+const posts = [...allPosts].sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+
+// Get unique tags from all posts
+const allTags = Array.from(new Set(posts.flatMap((post: Post) => post.data.tags || [])));
+
+// Format date
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  }).format(new Date(date));
+};
+
+// Calculate reading time
+const calculateReadingTime = (content: string) => {
+  const wordsPerMinute = 200;
+  const wordCount = content.split(/\s+/).length;
+  return Math.ceil(wordCount / wordsPerMinute);
+};
+---
+
+<Layout title="Blog | Nexus Remote Hub">
+  <style>
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    }
+  </style>
+  <!-- Hero Section -->
+  <header class="relative bg-gradient-to-br from-slate-900 to-slate-800 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIvPjxwYXRoIGQ9Ik0gMTAwIDAgTCAwIDAgMCAxMDAiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+')] opacity-20"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-32 md:pb-24">
+      <div class="relative z-10 max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-float">
+          <span class="block bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">Thoughts, stories</span>
+          <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">and ideas</span>
+        </h1>
+        <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
+          Insights and perspectives on remote work, productivity, and the future of digital nomadism.
+        </p>
+        
+        <!-- Search Bar -->
+        <div class="mt-10 max-w-lg mx-auto px-4 sm:px-0">
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="h-3.5 w-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="search"
+              placeholder="Search articles..."
+              class="block w-full pl-10 pr-4 py-2 text-base border border-slate-200 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-blue-50 to-transparent -z-10"></div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="flex flex-col lg:flex-row gap-12">
+        <!-- Main Content Area -->
+        <div class="lg:w-2/3">
+          <!-- Category Filter -->
+          <div class="mb-8 flex flex-wrap items-center gap-3">
+            <button class="px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium">
+              All Articles
+            </button>
+            {allTags.slice(0, 4).map((tag, index) => (
+              <article class={`bg-white rounded-xl shadow-sm overflow-hidden card-hover ${index === 0 ? 'border-l-4 border-blue-500' : ''}`}>
+                <button class="px-4 py-2 rounded-full text-slate-700 text-sm font-medium hover:bg-slate-50 transition-colors">
+                  {tag}
+                </button>
+              </article>
+            ))}
+          </div>
+
+          <!-- Featured Post -->
+          {posts[0] && (
+            <div class="mb-16 group card-hover">
+              <a href={`/blog/${posts[0].slug}/`} class="block bg-white rounded-xl overflow-hidden shadow-sm">
+                <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden mb-6 bg-slate-100">
+                  {posts[0].data.image && (
+                    <img 
+                      src={posts[0].data.image} 
+                      alt={posts[0].data.title}
+                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                  )}
+                </div>
+                <div class="max-w-3xl">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 shadow-sm">
+                      Featured
+                    </span>
+                    <span class="text-sm text-slate-500">
+                      {formatDate(posts[0].data.pubDate)}
+                    </span>
+                  </div>
+                  <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+                    {posts[0].data.title}
+                  </h2>
+                  <p class="text-lg text-slate-600 mb-6">
+                    {posts[0].data.description}
+                  </p>
+                  <div class="flex items-center group-hover:translate-x-1 transition-transform duration-300">
+                    <span class="text-blue-600 font-medium bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Read article</span>
+                    <svg class="ml-1 w-2 h-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </div>
+          )}
+
+          <!-- Blog Posts Grid -->
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            {posts.slice(1, 5).map(post => (
+              <article class="group card-hover">
+                <a href={`/blog/${post.slug}/`} class="block bg-white rounded-lg overflow-hidden shadow-sm h-full flex flex-col">
+                  <div class="aspect-w-16 aspect-h-9 overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
+                    {post.data.image && (
+                      <img 
+                        src={post.data.image} 
+                        alt={post.data.title}
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                      />
+                    )}
+                  </div>
+                  <div class="flex items-center gap-2 mb-3">
+                    {post.data.tags?.slice(0, 1).map((tag: string) => (
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
+                        {tag}
+                      </span>
+                    ))}
+                    <span class="text-xs text-slate-500">
+                      {formatDate(post.data.pubDate)}
+                    </span>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-slate-600 mb-4 line-clamp-2">
+                    {post.data.description}
+                  </p>
+                  <div class="mt-auto pt-4 flex items-center text-sm text-slate-500 border-t border-slate-100">
+                    <span>{calculateReadingTime(post.body)} min read</span>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+
+          {/* Load More Button */}
+          <div class="text-center">
+            <button class="inline-flex items-center px-6 py-3 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-slate-50 transition-colors">
+              Load more <svg class="w-2 h-2 ml-1 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="lg:w-1/3 space-y-8">
+          {/* About Card */}
+          <div class="bg-slate-50 rounded-2xl p-6">
+            <h3 class="text-lg font-semibold text-slate-900 mb-3">About the blog</h3>
+            <p class="text-slate-600 mb-4">
+              Nexus Remote Hub is a resource for remote professionals and digital nomads. We share insights, tips, and stories about the future of work.
+            </p>
+            <a href="/about" class="inline-flex items-center text-blue-600 font-medium group">
+              Read our story
+              <svg class="ml-1 w-2 h-2 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          {/* Popular Tags */}
+          <div class="bg-slate-50 rounded-2xl p-6">
+            <h3 class="text-lg font-semibold text-slate-900 mb-4">Popular Tags</h3>
+            <div class="flex flex-wrap gap-2">
+              {allTags.slice(0, 10).map(tag => (
+                <a 
+                  href={`/blog/tags/${tag.toLowerCase()}`}
+                  class="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors"
+                >
+                  {tag}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Newsletter */}
+          <div class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-6 text-white">
+            <div class="text-center">
+              <h3 class="text-xl font-semibold mb-2">Join our newsletter</h3>
+              <p class="text-blue-100 mb-6">Get the latest articles and resources sent to your inbox.</p>
+            </div>
+            <form class="space-y-3">
+              <div>
+                <label for="email" class="sr-only">Email address</label>
+                <input
+                  id="email"
+                  type="email"
+                  required
+                  class="block w-full px-4 py-3 rounded-lg text-slate-900 placeholder-slate-500 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <button
+                type="submit"
+                class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-blue-700 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-600 focus:ring-white transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
+            <p class="mt-3 text-center text-xs text-blue-200">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Search and filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search');
+    if (!searchInput) return;
+    
+    const blogPosts = document.querySelectorAll('article');
+    if (!blogPosts.length) return;
+
+    function filterPosts() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      
+      blogPosts.forEach(post => {
+        const title = post.querySelector('h2, h3')?.textContent?.toLowerCase() || '';
+        const excerpt = post.querySelector('p')?.textContent?.toLowerCase() || '';
+        const matchesSearch = title.includes(searchTerm) || excerpt.includes(searchTerm);
+        
+        post.style.display = searchTerm === '' || matchesSearch ? 'block' : 'none';
+      });
+    }
+
+    searchInput.addEventListener('input', filterPosts);
+  });
+</script>
+
+<style>
+  /* Custom styles for line clamping */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom focus styles */
+  *:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  }
+</style>

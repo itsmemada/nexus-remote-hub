@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-primary {
+    @apply bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500;
+  }
+  
+  .btn-outline {
+    @apply border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-indigo-500;
+  }
+  
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  
+  .prose :where(h1, h2, h3, h4):not(:first-child) {
+    @apply mt-8;
+  }
+  
+  .prose :where(h1, h2, h3, h4, h5, h6) {
+    @apply text-gray-900 font-semibold;
+  }
+  
+  .prose :where(p):not(:first-child) {
+    @apply mt-6;
+  }
+  
+  .prose :where(a) {
+    @apply text-indigo-600 hover:text-indigo-800 transition-colors;
+  }
+  
+  .prose :where(ul > li) {
+    @apply pl-2;
+  }
+  
+  .prose :where(ul > li:before) {
+    @apply text-indigo-500 mr-2;
+    content: '•';
+  }
+  
+  .prose :where(blockquote) {
+    @apply border-l-4 border-indigo-200 pl-4 italic text-gray-600;
+  }
+  
+  .prose :where(code) {
+    @apply rounded bg-gray-100 px-1.5 py-0.5 font-mono text-sm text-gray-800;
+  }
+  
+  .prose :where(pre) {
+    @apply rounded-lg bg-gray-900 p-4 overflow-x-auto;
+  }
+  
+  .prose :where(pre code) {
+    @apply bg-transparent p-0 text-gray-100;
+  }
+}
