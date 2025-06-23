@@ -15,8 +15,11 @@ export async function getStaticPaths() {
     return process.env.NODE_ENV === 'development' || !data.draft;
   });
   
+  // Debug: log the generated slugs
+  console.log('Generated blog post slugs:', posts.map(post => post.id));
+
   return posts.map((post) => ({
-    params: { slug: post.id },
+    params: { slug: post.id.replace(/\.md$/, '') },
     props: { post },
   }));
 }
@@ -159,7 +162,7 @@ const readingTime = post.data.readingTime ||
                       <p class="text-sm font-medium text-indigo-600">
                         {relatedPost.data.tags?.[0] || 'Article'}
                       </p>
-                      <a href={`/blog/${relatedPost.id}`} class="block mt-2">
+                      <a href={`/blog/${relatedPost.id.replace(/\.md$/, '')}`} class="block mt-2">
                         <h3 class="text-xl font-semibold text-gray-900 hover:text-indigo-600 transition-colors">
                           {relatedPost.data.title}
                         </h3>

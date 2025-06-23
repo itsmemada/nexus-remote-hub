@@ -4,8 +4,8 @@ pubDate: 2025-06-04
 description: 'This is the first post of my new Astro blog.'
 author: 'Astro Learner'
 image:
-    url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
-    alt: 'The Astro logo with the word One.'
+    url: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80'
+    alt: 'Modern workspace with laptop and coffee cup'
 tags: ["astro", "blogging", "learning in public"]
 ---
 
