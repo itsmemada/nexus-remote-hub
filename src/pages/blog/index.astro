@@ -48,25 +48,59 @@ const calculateReadingTime = (content: string) => {
       transform: translateY(-4px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
     }
+
+    /* Ad container styles */
+    .ad-container {
+      background: #f8f9fa;
+      border: 2px dashed #dee2e6;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c757d;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .ad-container:hover {
+      border-color: #adb5bd;
+      background: #e9ecef;
+    }
+
+    .ad-label {
+      position: absolute;
+      top: -8px;
+      left: 12px;
+      background: #6c757d;
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
   </style>
-  <!-- Hero Section -->
-  <header class="relative bg-gradient-to-br from-slate-900 to-slate-800 text-white overflow-hidden">
-    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIvPjxwYXRoIGQ9Ik0gMTAwIDAgTCAwIDAgMCAxMDAiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+')] opacity-20"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-32 md:pb-24">
-      <div class="relative z-10 max-w-3xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 animate-float">
-          <span class="block bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">Thoughts, stories</span>
-          <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">and ideas</span>
-        </h1>
-        <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
-          Insights and perspectives on remote work, productivity, and the future of digital nomadism.
-        </p>
+  
+  <!-- Compact Header -->
+  <header class="bg-white border-b border-gray-100 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            Blog
+          </h1>
+          <p class="text-lg text-gray-600">
+            Insights and perspectives on remote work, productivity, and digital nomadism
+          </p>
+        </div>
         
         <!-- Search Bar -->
-        <div class="mt-10 max-w-lg mx-auto px-4 sm:px-0">
+        <div class="max-w-md w-full">
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <svg class="h-3.5 w-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
@@ -74,17 +108,28 @@ const calculateReadingTime = (content: string) => {
               type="text"
               id="search"
               placeholder="Search articles..."
-              class="block w-full pl-10 pr-4 py-2 text-base border border-slate-200 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              class="block w-full pl-10 pr-4 py-2 text-base border border-gray-200 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
             />
           </div>
         </div>
       </div>
     </div>
-    <div class="absolute inset-0 bg-gradient-to-b from-blue-50 to-transparent -z-10"></div>
   </header>
 
+  <!-- Top Banner Ad Zone -->
+  <div class="bg-gray-50 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative">
+        <div class="ad-label">Advertisement</div>
+        <div class="ad-container h-20 md:h-24">
+          <span>Top Banner Ad (728x90 / 970x90)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Content -->
-  <main class="bg-slate-50">
+  <main class="bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
       <div class="flex flex-col lg:flex-row gap-12">
         <!-- Main Content Area -->
@@ -94,12 +139,10 @@ const calculateReadingTime = (content: string) => {
             <button class="px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium">
               All Articles
             </button>
-            {allTags.slice(0, 4).map((tag, index) => (
-              <article class={`bg-white rounded-xl shadow-sm overflow-hidden card-hover ${index === 0 ? 'border-l-4 border-blue-500' : ''}`}>
-                <button class="px-4 py-2 rounded-full text-slate-700 text-sm font-medium hover:bg-slate-50 transition-colors">
-                  {tag}
-                </button>
-              </article>
+            {allTags.slice(0, 4).map((tag) => (
+              <button class="px-4 py-2 rounded-full text-gray-700 text-sm font-medium hover:bg-gray-100 transition-colors">
+                {tag}
+              </button>
             ))}
           </div>
 
@@ -107,7 +150,7 @@ const calculateReadingTime = (content: string) => {
           {posts[0] && (
             <div class="mb-16 group card-hover">
               <a href={`/blog/${posts[0].id.replace(/\.md$/, '')}/`} class="block bg-white rounded-xl overflow-hidden shadow-sm">
-                <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden mb-6 bg-slate-100">
+                <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden mb-6 bg-gray-100">
                   {posts[0].data.image && (
                     <img 
                       src={posts[0].data.image.url} 
@@ -121,14 +164,14 @@ const calculateReadingTime = (content: string) => {
                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 shadow-sm">
                       Featured
                     </span>
-                    <span class="text-sm text-slate-500">
+                    <span class="text-sm text-gray-500">
                       {formatDate(posts[0].data.pubDate)}
                     </span>
                   </div>
-                  <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
                     {posts[0].data.title}
                   </h2>
-                  <p class="text-lg text-slate-600 mb-6">
+                  <p class="text-lg text-gray-600 mb-6">
                     {posts[0].data.description}
                   </p>
                   <div class="flex items-center group-hover:translate-x-1 transition-transform duration-300">
@@ -142,12 +185,22 @@ const calculateReadingTime = (content: string) => {
             </div>
           )}
 
+          <!-- In-Content Ad Zone -->
+          <div class="mb-12">
+            <div class="relative">
+              <div class="ad-label">Advertisement</div>
+              <div class="ad-container h-32 md:h-40">
+                <span>In-Content Ad (300x250 / 336x280)</span>
+              </div>
+            </div>
+          </div>
+
           <!-- Blog Posts Grid -->
           <div class="grid md:grid-cols-2 gap-8 mb-12">
             {posts.slice(1, 5).map(post => (
               <article class="group card-hover">
                 <a href={`/blog/${post.id.replace(/\.md$/, '')}/`} class="block bg-white rounded-lg overflow-hidden shadow-sm h-full flex flex-col">
-                  <div class="aspect-w-16 aspect-h-9 overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
+                  <div class="aspect-w-16 aspect-h-9 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
                     {post.data.image && (
                       <img 
                         src={post.data.image.url} 
@@ -158,21 +211,21 @@ const calculateReadingTime = (content: string) => {
                   </div>
                   <div class="flex items-center gap-2 mb-3">
                     {post.data.tags?.slice(0, 1).map((tag: string) => (
-                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
                         {tag}
                       </span>
                     ))}
-                    <span class="text-xs text-slate-500">
+                    <span class="text-xs text-gray-500">
                       {formatDate(post.data.pubDate)}
                     </span>
                   </div>
-                  <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                  <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
                     {post.data.title}
                   </h3>
-                  <p class="text-slate-600 mb-4 line-clamp-2">
+                  <p class="text-gray-600 mb-4 line-clamp-2">
                     {post.data.description}
                   </p>
-                  <div class="mt-auto pt-4 flex items-center text-sm text-slate-500 border-t border-slate-100">
+                  <div class="mt-auto pt-4 flex items-center text-sm text-gray-500 border-t border-gray-100">
                     <span>{calculateReadingTime(post.body)} min read</span>
                   </div>
                 </a>
@@ -181,21 +234,39 @@ const calculateReadingTime = (content: string) => {
           </div>
 
           {/* Load More Button */}
-          <div class="text-center">
-            <button class="inline-flex items-center px-6 py-3 border border-slate-200 rounded-full text-slate-700 font-medium hover:bg-slate-50 transition-colors">
+          <div class="text-center mb-12">
+            <button class="inline-flex items-center px-6 py-3 border border-gray-200 rounded-full text-gray-700 font-medium hover:bg-gray-50 transition-colors">
               Load more <svg class="w-2 h-2 ml-1 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
           </div>
+
+          <!-- Bottom Content Ad Zone -->
+          <div class="mb-12">
+            <div class="relative">
+              <div class="ad-label">Advertisement</div>
+              <div class="ad-container h-32 md:h-40">
+                <span>Bottom Content Ad (300x250 / 336x280)</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Sidebar -->
         <aside class="lg:w-1/3 space-y-8">
+          {/* Sidebar Top Ad Zone */}
+          <div class="relative">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-container h-60">
+              <span>Sidebar Ad (300x600)</span>
+            </div>
+          </div>
+
           {/* About Card */}
-          <div class="bg-slate-50 rounded-2xl p-6">
-            <h3 class="text-lg font-semibold text-slate-900 mb-3">About the blog</h3>
-            <p class="text-slate-600 mb-4">
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">About the blog</h3>
+            <p class="text-gray-600 mb-4">
               Nexus Remote Hub is a resource for remote professionals and digital nomads. We share insights, tips, and stories about the future of work.
             </p>
             <a href="/about" class="inline-flex items-center text-blue-600 font-medium group">
@@ -207,13 +278,13 @@ const calculateReadingTime = (content: string) => {
           </div>
 
           {/* Popular Tags */}
-          <div class="bg-slate-50 rounded-2xl p-6">
-            <h3 class="text-lg font-semibold text-slate-900 mb-4">Popular Tags</h3>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Popular Tags</h3>
             <div class="flex flex-wrap gap-2">
               {allTags.slice(0, 10).map(tag => (
                 <a 
                   href={`/blog/tags/${tag.toLowerCase()}`}
-                  class="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors"
+                  class="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors"
                 >
                   {tag}
                 </a>
