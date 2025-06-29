@@ -2,12 +2,23 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
+// Get URL parameters for tag filtering
+const { searchParams } = Astro.url;
+const selectedTag = searchParams.get('tag');
+
 // Get all blog posts and sort by date
 const allPosts = await getCollection('blog');
-const posts = [...allPosts].sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+let posts = [...allPosts].sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+
+// Filter posts by tag if one is selected
+if (selectedTag) {
+  posts = posts.filter(post => 
+    post.data.tags?.some(tag => tag.toLowerCase() === selectedTag.toLowerCase())
+  );
+}
 
 // Get unique tags from all posts
-const allTags = Array.from(new Set(posts.flatMap((post) => post.data.tags || [])));
+const allTags = Array.from(new Set(allPosts.flatMap((post) => post.data.tags || [])));
 
 // Format date
 const formatDate = (date: Date) => {
@@ -132,15 +143,41 @@ const calculateReadingTime = (content: string) => {
       <div class="flex flex-col lg:flex-row gap-12">
         <!-- Main Content Area -->
         <div class="lg:w-2/3">
+          {/* Tag Filter Header */}
+          {selectedTag && (
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                Posts tagged with "{selectedTag}"
+              </h2>
+              <p class="text-gray-600">
+                {posts.length} {posts.length === 1 ? 'post' : 'posts'} found
+              </p>
+            </div>
+          )}
+
           <!-- Category Filter -->
           <div class="mb-8 flex flex-wrap items-center gap-3">
-            <button class="px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium">
+            <a 
+              href="/blog"
+              class={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                !selectedTag 
+                  ? 'bg-blue-600 text-white' 
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            >
               All Articles
-            </button>
+            </a>
             {allTags.slice(0, 4).map((tag) => (
-              <button class="px-4 py-2 rounded-full text-gray-700 text-sm font-medium hover:bg-gray-100 transition-colors">
+              <a 
+                href={`/blog?tag=${tag.toLowerCase()}`}
+                class={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  selectedTag?.toLowerCase() === tag.toLowerCase()
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
+              >
                 {tag}
-              </button>
+              </a>
             ))}
           </div>
 
@@ -293,7 +330,7 @@ const calculateReadingTime = (content: string) => {
             <div class="flex flex-wrap gap-2">
               {allTags.slice(0, 10).map(tag => (
                 <a 
-                  href={`/blog/tags/${tag.toLowerCase()}`}
+                  href={`/blog?tag=${tag.toLowerCase()}`}
                   class="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors"
                 >
                   {tag}
