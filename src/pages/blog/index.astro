@@ -2,14 +2,12 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
-type Post = CollectionEntry<'blog'>;
-
 // Get all blog posts and sort by date
 const allPosts = await getCollection('blog');
 const posts = [...allPosts].sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
 
 // Get unique tags from all posts
-const allTags = Array.from(new Set(posts.flatMap((post: Post) => post.data.tags || [])));
+const allTags = Array.from(new Set(posts.flatMap((post) => post.data.tags || [])));
 
 // Format date
 const formatDate = (date: Date) => {
@@ -151,13 +149,19 @@ const calculateReadingTime = (content: string) => {
             <div class="mb-16 group card-hover">
               <a href={`/blog/${posts[0].id.replace(/\.md$/, '')}/`} class="block bg-white rounded-xl overflow-hidden shadow-sm">
                 <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden mb-6 bg-gray-100">
-                  {posts[0].data.image && (
+                  {typeof posts[0].data.image === 'string' ? (
                     <img 
-                      src={posts[0].data.image.url} 
-                      alt={posts[0].data.title}
+                      src={posts[0].data.image} 
+                      alt={('imageAlt' in posts[0].data ? String(posts[0].data.imageAlt) : posts[0].data.title)}
                       class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />
-                  )}
+                  ) : posts[0].data.image ? (
+                    <img 
+                      src={posts[0].data.image.url} 
+                      alt={posts[0].data.image.alt || posts[0].data.title}
+                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                  ) : null}
                 </div>
                 <div class="max-w-3xl">
                   <div class="flex items-center gap-3 mb-4">
@@ -195,33 +199,39 @@ const calculateReadingTime = (content: string) => {
             </div>
           </div>
 
-          <!-- Blog Posts Grid -->
-          <div class="grid md:grid-cols-2 gap-8 mb-12">
-            {posts.slice(1, 5).map(post => (
-              <article class="group card-hover">
-                <a href={`/blog/${post.id.replace(/\.md$/, '')}/`} class="block bg-white rounded-lg overflow-hidden shadow-sm h-full flex flex-col">
-                  <div class="aspect-w-16 aspect-h-9 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
-                    {post.data.image && (
+          <!-- Blog Posts List -->
+          <div id="blog-posts-list">
+            {posts.map((post, idx) => (
+              <article class="mb-12" data-post-idx={idx} style={{ display: idx < 6 ? 'block' : 'none' }}>
+                <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="block group">
+                  {typeof post.data.image === 'string' ? (
+                    <div class="aspect-w-16 aspect-h-6 rounded-2xl overflow-hidden mb-4 bg-gray-100">
+                      <img 
+                        src={post.data.image} 
+                        alt={('imageAlt' in post.data ? String(post.data.imageAlt) : post.data.title)}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                  ) : post.data.image ? (
+                    <div class="aspect-w-16 aspect-h-6 rounded-2xl overflow-hidden mb-4 bg-gray-100">
                       <img 
                         src={post.data.image.url} 
-                        alt={post.data.title}
-                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                        alt={post.data.image.alt || post.data.title}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                    )}
-                  </div>
-                  <div class="flex items-center gap-2 mb-3">
-                    {post.data.tags?.slice(0, 1).map((tag: string) => (
-                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
-                        {tag}
-                      </span>
-                    ))}
-                    <span class="text-xs text-gray-500">
-                      {formatDate(post.data.pubDate)}
-                    </span>
-                  </div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    </div>
+                  ) : (
+                    <div class="aspect-w-16 aspect-h-6 rounded-2xl overflow-hidden mb-4 bg-gray-100">
+                      <img 
+                        src="/placeholder.jpg" 
+                        alt="No image available"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                  )}
+                  <h2 class="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
                     {post.data.title}
-                  </h3>
+                  </h2>
                   <p class="text-gray-600 mb-4 line-clamp-2">
                     {post.data.description}
                   </p>
@@ -235,7 +245,7 @@ const calculateReadingTime = (content: string) => {
 
           {/* Load More Button */}
           <div class="text-center mb-12">
-            <button class="inline-flex items-center px-6 py-3 border border-gray-200 rounded-full text-gray-700 font-medium hover:bg-gray-50 transition-colors">
+            <button id="load-more-btn" class="inline-flex items-center px-6 py-3 border border-gray-200 rounded-full text-gray-700 font-medium hover:bg-gray-50 transition-colors">
               Load more <svg class="w-2 h-2 ml-1 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
@@ -348,6 +358,24 @@ const calculateReadingTime = (content: string) => {
     }
 
     searchInput.addEventListener('input', filterPosts);
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Load More functionality
+    const postsPerPage = 6;
+    let visibleCount = postsPerPage;
+    const posts = document.querySelectorAll('#blog-posts-list article');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    if (!loadMoreBtn) return;
+    loadMoreBtn.addEventListener('click', () => {
+      for (let i = visibleCount; i < visibleCount + postsPerPage && i < posts.length; i++) {
+        (posts[i] as HTMLElement).style.display = 'block';
+      }
+      visibleCount += postsPerPage;
+      if (visibleCount >= posts.length) {
+        loadMoreBtn.style.display = 'none';
+      }
+    });
   });
 </script>
 

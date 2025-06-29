@@ -41,16 +41,25 @@ const readingTime = post.data.readingTime ||
 <Layout title={post.data.title}>
   <article class="bg-white">
     {/* Featured Image */}
-    {post.data.image && (
+    {typeof post.data.image === 'string' ? (
       <div class="relative h-64 md:h-96 w-full">
         <img
-          src={post.data.image.url}
-          alt={post.data.image.alt}
+          src={post.data.image}
+          alt={('imageAlt' in post.data ? String(post.data.imageAlt) : post.data.title)}
           class="w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
       </div>
-    )}
+    ) : post.data.image ? (
+      <div class="relative h-64 md:h-96 w-full">
+        <img
+          src={post.data.image.url}
+          alt={post.data.image.alt || post.data.title}
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      </div>
+    ) : null}
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="max-w-3xl mx-auto">
@@ -148,7 +157,15 @@ const readingTime = post.data.readingTime ||
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {allPosts.map((relatedPost) => (
                 <article class="flex flex-col overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                  {relatedPost.data.image && (
+                  {typeof relatedPost.data.image === 'string' ? (
+                    <div class="flex-shrink-0 h-48">
+                      <img 
+                        class="w-full h-full object-cover" 
+                        src={relatedPost.data.image} 
+                        alt={('imageAlt' in relatedPost.data ? String(relatedPost.data.imageAlt) : relatedPost.data.title)}
+                      />
+                    </div>
+                  ) : relatedPost.data.image ? (
                     <div class="flex-shrink-0 h-48">
                       <img 
                         class="w-full h-full object-cover" 
@@ -156,7 +173,7 @@ const readingTime = post.data.readingTime ||
                         alt={relatedPost.data.image.alt || relatedPost.data.title}
                       />
                     </div>
-                  )}
+                  ) : null}
                   <div class="flex-1 bg-white p-6 flex flex-col">
                     <div class="flex-1">
                       <p class="text-sm font-medium text-indigo-600">
