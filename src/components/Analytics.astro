@@ -3,6 +3,10 @@
 ---
 
 <script>
-  import { inject } from '@vercel/analytics';
-  inject();
+  // Vercel Analytics - only load in production
+  if (import.meta.env.PROD) {
+    import('@vercel/analytics').then(({ inject }) => {
+      inject();
+    }).catch(console.error);
+  }
 </script> 
