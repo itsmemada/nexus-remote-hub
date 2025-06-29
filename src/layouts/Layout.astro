@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Analytics from '../components/Analytics.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -179,5 +180,6 @@ const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}ima
         }
       });
     </script>
+    <Analytics />
   </body>
 </html>
