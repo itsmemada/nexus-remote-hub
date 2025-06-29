@@ -3,10 +3,10 @@ title: "10 Essential Tips for Productive Remote Work"
 description: "Master the art of working from home with these proven productivity tips and tools for remote professionals."
 pubDate: 2025-05-15
 tags: ["remote work", "productivity", "work from home"]
-author: "Sarah Johnson"
-image: 
-  url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
-  alt: "Remote Work Tips - Laptop and workspace"
+author: "itsmemada"
+image:
+  url: "/images/remote-work-tips.jpg"
+  alt: "Modern home office setup for remote work (free Unsplash, served locally)"
 ---
 
 ## The Future is Remote

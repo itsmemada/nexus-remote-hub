@@ -4,6 +4,9 @@ description: "A transparent look at the upcoming features, articles, and improve
 pubDate: 2024-07-01
 tags: ["roadmap", "content calendar", "community"]
 author: "itsmemada"
+image:
+  url: "/images/roadmap-planning.jpg"
+  alt: "Sticky notes on a glass wall, representing planning and roadmap (free Unsplash, served locally)"
 ---
 
 ## Welcome to the July Roadmap!

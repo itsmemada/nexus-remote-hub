@@ -3,10 +3,10 @@ title: "Remote Team Communication: Best Practices"
 description: "How to keep your remote team connected, engaged, and productive."
 pubDate: 2025-03-10
 tags: ["remote work", "team communication", "collaboration"]
-author: "Emily Davis"
+author: "itsmemada"
 image:
-  url: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=800&q=80"
-  alt: "Remote Team Communication - Video call on laptop"
+  url: "/images/remote-team-communication.jpg"
+  alt: "Remote team video call and collaboration (free Unsplash, served locally)"
 ---
 
 ## The Communication Challenge in Remote Teams

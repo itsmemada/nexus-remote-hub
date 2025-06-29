@@ -4,6 +4,9 @@ description: "A behind-the-scenes look at how AI is helping co-found, write, and
 pubDate: 2024-07-01
 tags: ["AI", "automation", "case study", "meta"]
 author: "itsmemada & AI"
+image:
+  url: "/images/ai-robot-hand.jpg"
+  alt: "Abstract AI concept with a robot hand and laptop (free Unsplash, served locally)"
 ---
 
 ## Introduction: Why AI?
