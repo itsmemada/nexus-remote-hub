@@ -25,23 +25,23 @@
 - [x] Disallow admin areas (future-proofing)
 
 ### 6. Internal Linking ✅
-- [x] Related posts with tag-based algorithm
-- [x] Tag filtering functionality
-- [x] Cross-linking between related content
-- [x] Breadcrumb-style navigation
+- [ ] Related posts with tag-based algorithm
+- [ ] Tag filtering functionality
+- [ ] Cross-linking between related content
+- [ ] Breadcrumb-style navigation
 
 ### 7. Image Optimization ✅
-- [x] Descriptive alt text for all images
-- [x] Proper image object structure
-- [x] Social media image optimization
-- [x] Local image serving (no hotlinking)
+- [ ] Descriptive alt text for all images
+- [ ] Proper image object structure
+- [ ] Social media image optimization
+- [ ] Local image serving (no hotlinking)
 
 ### 8. Performance & Accessibility ✅
-- [x] Preload critical resources
-- [x] ARIA labels and roles
-- [x] Keyboard navigation support
-- [x] Focus indicators
-- [x] Semantic HTML structure
+- [ ] Preload critical resources
+- [ ] ARIA labels and roles
+- [ ] Keyboard navigation support
+- [ ] Focus indicators
+- [ ] Semantic HTML structure
 
 ## 🔄 Additional Recommendations
 

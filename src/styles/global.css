@@ -70,4 +70,8 @@
   .prose :where(pre code) {
     @apply bg-transparent p-0 text-gray-100;
   }
+  
+  .inline-link {
+    @apply text-indigo-600 font-medium hover:underline transition-colors rounded;
+  }
 }

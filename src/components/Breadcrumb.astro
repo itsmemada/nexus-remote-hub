@@ -1,0 +1,29 @@
+---
+// Breadcrumb.astro
+// Props: items: Array<{ label: string, href?: string }>
+/** @type {{ items?: Array<{ label: string, href?: string }> }} */
+const { items = [] } = Astro.props;
+---
+<nav class="breadcrumb my-6" aria-label="Breadcrumb">
+  <ol class="flex items-center space-x-2 bg-gray-50 rounded-lg px-4 py-2 shadow-sm border border-gray-100">
+    {items.map((item: { label: string, href?: string }, idx: number) => (
+      <li class="flex items-center">
+        {item.href && idx !== items.length - 1 ? (
+          <a href={item.href} class="text-gray-600 hover:text-indigo-600 font-medium transition-colors">{item.label}</a>
+        ) : (
+          <span aria-current="page" class="font-semibold text-indigo-700">{item.label}</span>
+        )}
+        {idx < items.length - 1 && (
+          <svg class="mx-3 h-4 w-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+<style>
+  .breadcrumb a {
+    text-decoration: none;
+  }
+</style> 

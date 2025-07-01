@@ -71,6 +71,8 @@ The digital nomad lifestyle has evolved from a niche choice to a mainstream way 
 - **Slack** for team communication
 - **Zoom** for meetings
 
+For more actionable advice on staying productive while working remotely, check out our <a href="/blog/remote-work-tips" class="inline-link">10 Essential Tips for Productive Remote Work</a>.
+
 ---
 
 ### Health and Wellbeing
@@ -80,6 +82,8 @@ The digital nomad lifestyle has evolved from a niche choice to a mainstream way 
 - Maintain an exercise routine
 - Be mindful of time zone challenges
 - Take time to disconnect and explore
+
+Communication is key for building a strong remote community. Read our <a href="/blog/remote-team-communication" class="inline-link">Remote Team Communication: Best Practices</a> for tips on staying connected.
 
 ---
 

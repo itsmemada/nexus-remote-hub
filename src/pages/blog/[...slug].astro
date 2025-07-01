@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 // Add type definitions for environment variables
 declare const process: {
@@ -67,6 +68,11 @@ const readingTime = post.data.readingTime ||
   image={typeof post.data.image === 'string' ? post.data.image : post.data.image?.url}
   canonical={`/blog/${post.id.replace(/\.md$/, '')}`}
 >
+  <Breadcrumb items={[
+    { label: 'Home', href: '/' },
+    { label: 'Blog', href: '/blog' },
+    { label: post.data.title }
+  ]} />
   <article class="bg-white">
     {/* Featured Image */}
     {typeof post.data.image === 'string' ? (

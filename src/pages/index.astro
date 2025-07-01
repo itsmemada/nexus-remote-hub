@@ -5,8 +5,8 @@ import Layout from '../layouts/Layout.astro';
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
   
-const featuredPost = posts[0];
-const recentPosts = posts.slice(1, 4);
+const featuredPost = posts.find(post => post.data.featured === true) || posts[0];
+const recentPosts = posts.filter(post => post.id !== featuredPost.id).slice(0, 3);
 ---
 
 <Layout title="Home">

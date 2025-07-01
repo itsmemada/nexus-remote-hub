@@ -5,8 +5,9 @@ pubDate: 2024-07-01
 tags: ["AI", "automation", "case study", "meta"]
 author: "itsmemada & AI"
 image:
-  url: "/images/ai-robot-hand.jpg"
-  alt: "Abstract AI concept with a robot hand and laptop (free Unsplash, served locally)"
+  url: "/images/ai-human-collab.jpg"
+  alt: "Man with black robotic hands smiling, symbolizing friendly human and AI collaboration"
+featured: true
 ---
 
 ## Introduction: Why AI?
@@ -29,6 +30,8 @@ Building a technical blog and open project is a big task—so why not use the la
 - **Smarter Automation:** Integrating AI to suggest, draft, and even schedule new posts based on analytics and feedback.
 - **Community Input:** Inviting readers to suggest experiments or topics for AI to tackle.
 - **Transparency:** Every AI-assisted post will be clearly marked and open for feedback.
+
+For more on how technology is shaping remote work, check out our <a href="/blog/remote-work-tips" class="inline-link">10 Essential Tips for Productive Remote Work</a>.
 
 ## Call to Action
 Curious about the process? Want to see a specific AI experiment or topic? Leave a comment or reach out—let's build the future of technical blogging together! 

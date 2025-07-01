@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 // Get URL parameters for tag filtering
 const { searchParams } = Astro.url;
@@ -35,9 +36,16 @@ const calculateReadingTime = (content: string) => {
   const wordCount = content.split(/\s+/).length;
   return Math.ceil(wordCount / wordsPerMinute);
 };
+
+const featuredPost = allPosts.find(post => post.data.featured === true) || allPosts[0];
+const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
 ---
 
 <Layout title="Blog | Nexus Remote Hub">
+  <Breadcrumb items={[
+    { label: 'Home', href: '/' },
+    { label: 'Blog' }
+  ]} />
   <style>
     @keyframes float {
       0% { transform: translateY(0px); }
@@ -182,20 +190,20 @@ const calculateReadingTime = (content: string) => {
           </div>
 
           <!-- Featured Post -->
-          {posts[0] && (
+          {featuredPost && (
             <div class="mb-16 group card-hover">
-              <a href={`/blog/${posts[0].id.replace(/\.md$/, '')}/`} class="block bg-white rounded-xl overflow-hidden shadow-sm">
+              <a href={`/blog/${featuredPost.id.replace(/\.md$/, '')}/`} class="block bg-white rounded-xl overflow-hidden shadow-sm">
                 <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden mb-6 bg-gray-100">
-                  {typeof posts[0].data.image === 'string' ? (
+                  {typeof featuredPost.data.image === 'string' ? (
                     <img 
-                      src={posts[0].data.image} 
-                      alt={('imageAlt' in posts[0].data ? String(posts[0].data.imageAlt) : posts[0].data.title)}
+                      src={featuredPost.data.image} 
+                      alt={('imageAlt' in featuredPost.data ? String(featuredPost.data.imageAlt) : featuredPost.data.title)}
                       class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />
-                  ) : posts[0].data.image ? (
+                  ) : featuredPost.data.image ? (
                     <img 
-                      src={posts[0].data.image.url} 
-                      alt={posts[0].data.image.alt || posts[0].data.title}
+                      src={featuredPost.data.image.url} 
+                      alt={featuredPost.data.image.alt || featuredPost.data.title}
                       class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : null}
@@ -206,14 +214,14 @@ const calculateReadingTime = (content: string) => {
                       Featured
                     </span>
                     <span class="text-sm text-gray-500">
-                      {formatDate(posts[0].data.pubDate)}
+                      {formatDate(featuredPost.data.pubDate)}
                     </span>
                   </div>
                   <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
-                    {posts[0].data.title}
+                    {featuredPost.data.title}
                   </h2>
                   <p class="text-lg text-gray-600 mb-6">
-                    {posts[0].data.description}
+                    {featuredPost.data.description}
                   </p>
                   <div class="flex items-center group-hover:translate-x-1 transition-transform duration-300">
                     <span class="text-blue-600 font-medium bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Read article</span>
@@ -238,7 +246,7 @@ const calculateReadingTime = (content: string) => {
 
           <!-- Blog Posts List -->
           <div id="blog-posts-list">
-            {posts.map((post, idx) => (
+            {mainPosts.map((post, idx) => (
               <article class="mb-12" data-post-idx={idx} style={{ display: idx < 6 ? 'block' : 'none' }}>
                 <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="block group">
                   {typeof post.data.image === 'string' ? (
