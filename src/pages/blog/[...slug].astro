@@ -29,9 +29,32 @@ const { Content } = await post.render();
 
 // Get related posts (excluding current post)
 const allPosts = (await getCollection('blog'))
-  .filter(p => p.id !== post.id && (process.env.NODE_ENV === 'development' || !p.data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .filter(p => p.id !== post.id && (process.env.NODE_ENV === 'development' || !p.data.draft));
+
+// Calculate relatedness score based on tag overlap
+const getRelatednessScore = (post1: any, post2: any) => {
+  const tags1 = post1.data.tags || [];
+  const tags2 = post2.data.tags || [];
+  const commonTags = tags1.filter((tag: string) => tags2.includes(tag));
+  return commonTags.length;
+};
+
+// Sort by relatedness score (tag overlap) and then by date
+const relatedPosts = allPosts
+  .map(p => ({
+    post: p,
+    score: getRelatednessScore(post, p)
+  }))
+  .sort((a, b) => {
+    // First sort by relatedness score (descending)
+    if (b.score !== a.score) {
+      return b.score - a.score;
+    }
+    // Then by date (newest first)
+    return b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf();
+  })
+  .slice(0, 3)
+  .map(item => item.post);
 
 // Calculate reading time if not provided
 const readingTime = post.data.readingTime || 
@@ -156,11 +179,11 @@ const readingTime = post.data.readingTime ||
         )}
 
         {/* Related Posts */}
-        {allPosts.length > 0 && (
+        {relatedPosts.length > 0 && (
           <div class="mt-16">
             <h2 class="text-2xl font-bold text-gray-900 mb-8">You might also like</h2>
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {allPosts.map((relatedPost) => (
+              {relatedPosts.map((relatedPost) => (
                 <article class="flex flex-col overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                   {typeof relatedPost.data.image === 'string' ? (
                     <div class="flex-shrink-0 h-48">
