@@ -38,7 +38,12 @@ const readingTime = post.data.readingTime ||
   Math.max(1, Math.round(post.body.split(/\s+/).length / 200));
 ---
 
-<Layout title={post.data.title}>
+<Layout 
+  title={post.data.title}
+  description={post.data.description}
+  image={typeof post.data.image === 'string' ? post.data.image : post.data.image?.url}
+  canonical={`/blog/${post.id.replace(/\.md$/, '')}`}
+>
   <article class="bg-white">
     {/* Featured Image */}
     {typeof post.data.image === 'string' ? (

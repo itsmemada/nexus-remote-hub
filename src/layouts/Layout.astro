@@ -7,12 +7,14 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  canonical?: string;
 }
 
 const { 
   title = 'Nexus Remote Hub', 
-  description = 'Discover the best remote work tools, tips, and strategies',
-  image
+  description = 'Discover the best remote work tools, tips, and strategies for digital nomads and remote professionals',
+  image,
+  canonical
 } = Astro.props;
 
 const posts = await getCollection('blog');
@@ -25,6 +27,7 @@ const navLinks = [
 ];
 
 const siteUrl = new URL(import.meta.env.SITE || 'http://localhost:4321');
+const currentUrl = canonical ? new URL(canonical, siteUrl).toString() : Astro.url.toString();
 const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}images/og-image.jpg`;
 ---
 
@@ -35,26 +38,41 @@ const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}ima
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     
+    {/* Canonical URL */}
+    <link rel="canonical" href={currentUrl} />
+    
     {/* Base Styles */}
     <link rel="stylesheet" href="/styles/base.css" />
     
     {/* Open Graph / Facebook */}
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:url" content={currentUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={fullImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Nexus Remote Hub" />
+    <meta property="og:locale" content="en_US" />
 
     {/* Twitter */}
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={siteUrl} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={fullImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={currentUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImageUrl} />
+    <meta name="twitter:site" content="@nexusremotehub" />
+    <meta name="twitter:creator" content="@itsmemada" />
+
+    {/* Additional SEO Meta Tags */}
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="itsmemada" />
+    <meta name="keywords" content="remote work, digital nomad, productivity, IT, technology, work from home" />
 
     {/* Favicon */}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     
     {/* Google Fonts - Inter */}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,9 +83,6 @@ const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}ima
     <link rel="stylesheet" href="/styles/base.css" />
     <title>{title} | Nexus Remote Hub</title>
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Paste your Google AdSense script here -->
 
