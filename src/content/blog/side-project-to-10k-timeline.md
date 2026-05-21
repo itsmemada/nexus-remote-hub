@@ -4,6 +4,9 @@ description: "Forget the overnight success stories. Here's what it actually take
 pubDate: 2026-05-31
 tags: ["entrepreneurship", "remote work", "case study", "business", "digital nomad"]
 author: "itsmemada"
+image:
+  url: "/images/side-project-business.jpg"
+  alt: "Home office setup representing building a remote-first business from a side project"
 featured: true
 ---
 

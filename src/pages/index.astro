@@ -78,7 +78,7 @@ const recentPosts = posts.filter(post => post.id !== featuredPost.id).slice(0, 3
               {recentPosts.map((post) => (
                 <div class="border-l-4 border-indigo-200 pl-4 py-1">
                   <h3 class="text-lg font-semibold text-gray-900 hover:text-indigo-600 transition-colors">
-                    <a href={`/blog/${post.id}`}>
+                    <a href={`/blog/${post.id.replace(/\.md$/, '')}/`}>
                       {post.data.title}
                     </a>
                   </h3>

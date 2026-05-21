@@ -4,6 +4,9 @@ description: "Synchronous meetings are killing your productivity. Here's how the
 pubDate: 2026-05-22
 tags: ["remote work", "async communication", "productivity", "team management", "case study"]
 author: "itsmemada"
+image:
+  url: "/images/async-communication.jpg"
+  alt: "Team collaborating asynchronously with digital tools and communication platforms"
 featured: true
 ---
 

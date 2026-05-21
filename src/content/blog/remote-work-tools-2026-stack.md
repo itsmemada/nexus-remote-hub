@@ -4,6 +4,9 @@ description: "After 6 months of testing, here are the only remote work tools tha
 pubDate: 2026-05-25
 tags: ["remote work", "tools", "productivity", "software", "review"]
 author: "itsmemada"
+image:
+  url: "/images/remote-tools-stack.jpg"
+  alt: "Dashboard with analytics and productivity tools representing the remote work tech stack"
 ---
 
 ## The Tool Problem is Real
