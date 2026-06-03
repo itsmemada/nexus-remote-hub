@@ -7,6 +7,15 @@ export async function ALL({ request }) {
   const pathname = url.pathname;
 
   try {
+    // Health check
+    if (pathname === '/umami/api/health') {
+      const res = await fetch(`${API_BASE}/health`);
+      const body = await res.text();
+      return new Response(JSON.stringify({ status: 'ok', upstream: body }), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     // Proxy script.js
     if (pathname === '/umami/script.js') {
       const res = await fetch(`${API_BASE}/script.js`);
@@ -31,7 +40,9 @@ export async function ALL({ request }) {
           headers: { 'Content-Type': 'application/json' },
           body,
         });
-        const result = await res.json();
+        const text = await res.text();
+        let result;
+        try { result = JSON.parse(text); } catch { result = { raw: text }; }
         return new Response(JSON.stringify(result), {
           status: res.status,
           headers: {
@@ -42,7 +53,9 @@ export async function ALL({ request }) {
       }
 
       const res = await fetch(targetUrl);
-      const result = await res.json();
+      const text = await res.text();
+      let result;
+      try { result = JSON.parse(text); } catch { result = { raw: text }; }
       return new Response(JSON.stringify(result), {
         status: res.status,
         headers: {
