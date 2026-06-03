@@ -1,17 +1,12 @@
 {
-  "functions": {
-    "api/umami.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/umami/script.js",
-      "destination": "/api/umami.js"
+      "destination": "/umami/api/script.js"
     },
     {
       "source": "/umami/api/:path*",
-      "destination": "/api/umami.js"
+      "destination": "/umami/api/:path*"
     }
   ]
 }
