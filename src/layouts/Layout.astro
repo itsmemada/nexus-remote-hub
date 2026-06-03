@@ -92,14 +92,8 @@ const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}ima
     <title>{title} | Nexus Remote Hub</title>
     <meta name="generator" content={Astro.generator} />
     
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC1NCJG1CV"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-MC1NCJG1CV');
-    </script>
+    <!-- Umami Analytics -->
+    <script defer src="http://130.61.95.110:5300/script.js" data-website-id="31ffaf81-b90b-41db-b763-41506ce07464"></script>
 
   </head>
   <body class="min-h-screen bg-white flex flex-col">
