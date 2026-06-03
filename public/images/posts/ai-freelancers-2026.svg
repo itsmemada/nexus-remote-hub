@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1a1a2e"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#grad)"/>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.6"/>
+    </linearGradient>
+  </defs>
+  <text x="600" y="280" font-family="Inter, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">AI vs Freelancers</text>
+  <text x="600" y="340" font-family="Inter, sans-serif" font-size="24" fill="#a5b4fc" text-anchor="middle">What the 97% savings data actually means</text>
+  <text x="600" y="400" font-family="Inter, sans-serif" font-size="18" fill="#6366f1" text-anchor="middle">Nexus Remote Hub</text>
+</svg>
