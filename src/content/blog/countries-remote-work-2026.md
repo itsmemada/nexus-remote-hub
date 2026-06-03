@@ -5,6 +5,9 @@ pubDate: 2026-06-04
 updatedDate: 2026-06-04
 tags: ["digital-nomad", "remote-work", "travel", "visa", "cost-of-living"]
 draft: false
+image:
+  url: "/images/roadmap-beach.jpg"
+  alt: "Laptop on a beach — digital nomad lifestyle across 8 countries"
 ---
 
 # I Compared 8 Countries for Remote Work in 2026 — The Results Surprised Me

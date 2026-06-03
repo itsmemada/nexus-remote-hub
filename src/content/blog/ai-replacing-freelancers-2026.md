@@ -5,6 +5,9 @@ pubDate: 2026-06-04
 updatedDate: 2026-06-04
 tags: ["remote-work", "AI", "freelancing", "career", "productivity"]
 draft: false
+image:
+  url: "/images/ai-human-collab.jpg"
+  alt: "Human and AI collaborating on a laptop — the future of freelance work"
 ---
 
 # AI Is Replacing Freelancers at 97% Savings — What Remote Workers Must Do Now
