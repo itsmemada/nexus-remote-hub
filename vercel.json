@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/umami.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "rewrites": [
     {
       "source": "/umami/script.js",
