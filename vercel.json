@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/umami/script.js",
-      "destination": "http://130.61.95.110:5300/script.js"
+      "destination": "/api/umami.js"
     },
     {
       "source": "/umami/api/:path*",
-      "destination": "http://130.61.95.110:5300/api/:path*"
+      "destination": "/api/umami.js"
     }
   ]
 }
