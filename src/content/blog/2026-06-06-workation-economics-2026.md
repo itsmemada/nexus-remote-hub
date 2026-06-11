@@ -3,7 +3,7 @@ title: "The Workation Economics of 2026: Why 2-Week Trips Beat Both Offices and 
 description: "The workation trend is exploding in 2026. We break down the real economics — flights, accommodation, productivity loss, visa costs — and show why the 2-week model is winning over both traditional offices and full-time nomadism."
 pubDate: 2026-06-06
 tags: ["remote work", "digital nomad", "workation", "productivity", "travel", "economics"]
-heroImage: "/images/posts/workation-economics-2026.jpg"
+heroImage: "/placeholder.jpg"
 ---
 
 # The Workation Economics of 2026: Why 2-Week Trips Beat Both Offices and Permanent Nomadism
