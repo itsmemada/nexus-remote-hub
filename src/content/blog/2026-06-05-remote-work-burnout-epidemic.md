@@ -4,7 +4,7 @@ description: "Remote work promised freedom. Instead, 67% of remote workers repor
 pubDate: 2026-06-05
 updatedDate: 2026-06-05
 tags: ["remote-work", "burnout", "productivity", "mental-health", "work-life-balance"]
-draft: true
+draft: false
 image:
   url: "/images/burnout-hero.jpg"
   alt: "Tired remote worker with laptop showing the reality of work-from-home burnout"
