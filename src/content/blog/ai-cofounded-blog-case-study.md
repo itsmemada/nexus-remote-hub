@@ -5,8 +5,8 @@ pubDate: 2024-07-01
 tags: ["AI", "automation", "case study", "meta"]
 author: "itsmemada & AI"
 image:
-  url: "/images/ai-human-collab.jpg"
-  alt: "Man with black robotic hands smiling, symbolizing friendly human and AI collaboration"
+  url: "/images/ai-cofounded-blog.jpg"
+  alt: "AI-powered content creation — blog post written with AI assistance"
 featured: true
 ---
 

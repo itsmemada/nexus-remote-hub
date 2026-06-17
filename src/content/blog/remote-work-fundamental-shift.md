@@ -5,8 +5,8 @@ pubDate: 2026-05-21
 tags: ["remote work", "future of work", "digital nomad", "productivity"]
 author: "itsmemada"
 image:
-  url: "/images/ai-human-collab.jpg"
-  alt: "Human and AI collaboration representing the future of remote work"
+  url: "/images/remote-work-fundamental-shift.jpg"
+  alt: "The fundamental shift in remote work — AI, automation, and the new workplace"
 ---
 
 ## The Remote Revolution is Here to Stay
