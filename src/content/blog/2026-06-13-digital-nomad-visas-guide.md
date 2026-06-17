@@ -7,7 +7,7 @@ tags: ["digital nomad", "remote work", "visa", "travel", "legal", "tax", "expat"
 image:
   url: "/images/digital-nomad-visas-2026.jpg"
   alt: "Digital nomad visa guide — working legally from anywhere in 2026"
-draft: true
+draft: false
 ---
 
 # Digital Nomad Visas in 2026: The Definitive Guide to Working Legally From Anywhere
