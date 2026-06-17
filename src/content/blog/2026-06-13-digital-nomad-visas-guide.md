@@ -4,7 +4,9 @@ description: "Over 50 countries now offer digital nomad visas. We break down the
 pubDate: 2026-06-13
 updatedDate: 2026-06-13
 tags: ["digital nomad", "remote work", "visa", "travel", "legal", "tax", "expat", "international"]
-heroImage: "/images/posts/digital-nomad-visas-2026.jpg"
+image:
+  url: "/images/digital-nomad-visas-2026.jpg"
+  alt: "Digital nomad visa guide — working legally from anywhere in 2026"
 draft: true
 ---
 

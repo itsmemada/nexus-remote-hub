@@ -1,9 +1,11 @@
 ---
 title: "The Async Meeting Calculator: A 5-Question Framework to Eliminate Pointless Meetings in 2026"
 description: "Remote teams are drowning in meetings. This 5-question decision framework helps you evaluate whether a meeting deserves to exist — and what to do instead. Includes a scoring calculator and real-world examples."
-pubDate: "2026-06-11"
+pubDate: 2026-06-11
 tags: ["remote work", "meetings", "async communication", "productivity", "team management", "framework"]
-heroImage: "/placeholder.jpg"
+image:
+  url: "/images/async-meeting-calculator.jpg"
+  alt: "Remote team meeting — eliminating pointless meetings with async communication"
 ---
 
 # The Async Meeting Calculator: A 5-Question Framework to Eliminate Pointless Meetings in 2026

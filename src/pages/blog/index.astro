@@ -7,8 +7,8 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 const { searchParams } = Astro.url;
 const selectedTag = searchParams.get('tag');
 
-// Get all blog posts and sort by date
-const allPosts = await getCollection('blog');
+// Get all blog posts (excluding drafts) and sort by date
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 let posts = [...allPosts].sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
 
 // Filter posts by tag if one is selected
