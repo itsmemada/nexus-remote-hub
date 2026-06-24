@@ -2,17 +2,19 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import tailwind from '@astrojs/tailwind';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nexus-remote-hub.vercel.app',
+  site: 'https://www.nexus404.pl',
   base: '/',
   trailingSlash: 'ignore',
   output: 'static',
+  adapter: vercel(),
   integrations: [
     mdx(),
     tailwind({
-      applyBaseStyles: false, // We'll handle base styles in our global CSS
+      applyBaseStyles: false,
       configFile: './tailwind.config.mjs',
     }),
   ],
