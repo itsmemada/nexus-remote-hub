@@ -4,6 +4,9 @@ description: "Every digital nomad packing list is written by someone who packed 
 pubDate: 2026-06-20
 tags: ["digital-nomad", "travel", "packing", "remote-work", "gear", "productivity"]
 heroImage: "/images/posts/digital-nomad-packing-list-2026.svg"
+image:
+  url: "/images/nomad-packing-list-2026.jpg"
+  alt: "Digital nomad with backpack and laptop, surrounded by travel gear on a tropical beach"
 ---
 
 # The Digital Nomad Packing List 2026: 47 Items I Actually Use After 2 Years of Full-Time Travel

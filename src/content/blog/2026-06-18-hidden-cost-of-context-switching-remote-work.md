@@ -4,6 +4,9 @@ description: "Every Slack ping costs you 23 minutes of deep focus. Here's the re
 pubDate: 2026-06-18
 tags: ["remote-work", "productivity", "deep-work", "focus", "time-management", "psychology"]
 heroImage: "/images/posts/context-switching-remote-work.webp"
+image:
+  url: "/images/context-switching-hero.jpg"
+  alt: "Remote worker surrounded by notifications and multiple screens showing context switching chaos"
 ---
 
 # The Hidden Cost of Context Switching: Why Remote Workers Lose 4 Hours a Day
