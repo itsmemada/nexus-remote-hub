@@ -1,7 +1,7 @@
 ---
 title: "The Hidden Cost of Context Switching: Why Remote Workers Lose 4 Hours a Day"
 description: "Every Slack ping costs you 23 minutes of deep focus. Here's the real data on how context switching destroys remote worker productivity — and the systems top performers use to fight back."
-pubDate: "2026-06-18"
+pubDate: 2026-06-18
 tags: ["remote-work", "productivity", "deep-work", "focus", "time-management", "psychology"]
 heroImage: "/images/posts/context-switching-remote-work.webp"
 ---

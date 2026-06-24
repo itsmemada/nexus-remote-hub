@@ -1,7 +1,7 @@
 ---
 title: "The Digital Nomad Packing List 2026: 47 Items I Actually Use After 2 Years of Full-Time Travel"
 description: "Every digital nomad packing list is written by someone who packed once. This one is refined after 2 years across 20+ countries — with real weights, real utility, and real regrets."
-pubDate: "2026-06-20"
+pubDate: 2026-06-20
 tags: ["digital-nomad", "travel", "packing", "remote-work", "gear", "productivity"]
 heroImage: "/images/posts/digital-nomad-packing-list-2026.svg"
 ---

@@ -1,6 +1,6 @@
 ---
-title: Digital Nomad Internet Guide: How to Get Reliable WiFi in 30+ Countries
-description: The biggest lie in digital nomad content: "just work from anywhere." The reality? Internet quality varies wildly, and a dropped Zoom call can cost you a client.
+title: "Digital Nomad Internet Guide: How to Get Reliable WiFi in 30+ Countries"
+description: "The biggest lie in digital nomad content: \"just work from anywhere.\" The reality? Internet quality varies wildly, and a dropped Zoom call can cost you a client."
 pubDate: 2026-06-22
 updatedDate: 2026-06-22
 tags: ["digital nomad", "remote work", "travel", "economics"]
