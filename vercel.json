@@ -1,0 +1,7 @@
+{
+  "framework": "astro",
+  "buildCommand": "npx astro build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "domains": ["www.nexus404.pl", "nexus404.pl"]
+}
