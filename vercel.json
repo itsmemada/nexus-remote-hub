@@ -1,5 +1,8 @@
 {
   "framework": "astro",
   "buildCommand": "npx astro build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "rewrites": [],
+  "cleanUrls": true
 }
