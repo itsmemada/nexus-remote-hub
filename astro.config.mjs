@@ -4,7 +4,6 @@ import mdx from '@astrojs/mdx';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://www.nexus404.pl',
   base: '/',
   trailingSlash: 'ignore',
   output: 'static',
