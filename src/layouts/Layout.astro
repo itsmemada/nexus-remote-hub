@@ -102,6 +102,16 @@ const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}ima
     {/* RSS Discovery */}
     <link rel="alternate" type="application/rss+xml" title="Nexus Remote Hub RSS Feed" href="/rss.xml" />
 
+    {/* Dark mode init — prevents flash of wrong theme */}
+    <script is:inline>
+      (function() {
+        var stored = localStorage.getItem('darkMode');
+        if (stored === 'true' || (stored === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
   </head>
   <body class="min-h-screen bg-white dark:bg-gray-950 flex flex-col transition-colors duration-200">
     <header class="bg-white dark:bg-gray-900 shadow-sm dark:shadow-gray-800/50 sticky top-0 z-50 transition-colors duration-200">
