@@ -101,14 +101,14 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
   </style>
   
   <!-- Compact Header -->
-  <header class="bg-white border-b border-gray-100 py-8">
+  <header class="bg-white dark:bg-gray-800 border-b border-gray-100 py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div>
-          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-50 mb-2">
             Blog
           </h1>
-          <p class="text-lg text-gray-600">
+          <p class="text-lg text-gray-600 dark:text-gray-400">
             Insights and perspectives on remote work, productivity, and digital nomadism
           </p>
         </div>
@@ -125,7 +125,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
               type="text"
               id="search"
               placeholder="Search articles..."
-              class="block w-full pl-10 pr-4 py-2 text-base border border-gray-200 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              class="block w-full pl-10 pr-4 py-2 text-base border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
             />
           </div>
         </div>
@@ -134,7 +134,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
   </header>
 
   <!-- Top Banner Ad Zone -->
-  <div class="bg-gray-50 py-4">
+  <div class="bg-gray-50 dark:bg-gray-800 py-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative">
         <div class="ad-label">Advertisement</div>
@@ -146,7 +146,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
   </div>
 
   <!-- Main Content -->
-  <main class="bg-gray-50">
+  <main class="bg-gray-50 dark:bg-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
       <div class="flex flex-col lg:flex-row gap-12">
         <!-- Main Content Area -->
@@ -154,10 +154,10 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
           {/* Tag Filter Header */}
           {selectedTag && (
             <div class="mb-8">
-              <h2 class="text-2xl font-bold text-gray-900 mb-2">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-2">
                 Posts tagged with "{selectedTag}"
               </h2>
-              <p class="text-gray-600">
+              <p class="text-gray-600 dark:text-gray-400">
                 {posts.length} {posts.length === 1 ? 'post' : 'posts'} found
               </p>
             </div>
@@ -170,7 +170,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
               class={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 !selectedTag 
                   ? 'bg-blue-600 text-white' 
-                  : 'text-gray-700 hover:bg-gray-100'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:bg-gray-800'
               }`}
             >
               All Articles
@@ -181,7 +181,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                 class={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   selectedTag?.toLowerCase() === tag.toLowerCase()
                     ? 'bg-blue-600 text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:bg-gray-800'
                 }`}
               >
                 {tag}
@@ -192,8 +192,8 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
           <!-- Featured Post -->
           {featuredPost && (
             <div class="mb-16 group card-hover">
-              <a href={`/blog/${featuredPost.id.replace(/\.md$/, '')}/`} class="block bg-white rounded-xl overflow-hidden shadow-sm">
-                <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden mb-6 bg-gray-100">
+              <a href={`/blog/${featuredPost.id.replace(/\.md$/, '')}/`} class="block bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm">
+                <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden mb-6 bg-gray-100 dark:bg-gray-800">
                   {typeof featuredPost.data.image === 'string' ? (
                     <img 
                       src={featuredPost.data.image} 
@@ -213,14 +213,14 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 shadow-sm">
                       Featured
                     </span>
-                    <span class="text-sm text-gray-500">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">
                       {formatDate(featuredPost.data.pubDate)}
                     </span>
                   </div>
-                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4 group-hover:text-blue-600 transition-colors">
                     {featuredPost.data.title}
                   </h2>
-                  <p class="text-lg text-gray-600 mb-6">
+                  <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
                     {featuredPost.data.description}
                   </p>
                   <div class="flex items-center group-hover:translate-x-1 transition-transform duration-300">
@@ -250,7 +250,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
               <article class="mb-12" data-post-idx={idx} style={{ display: idx < 6 ? 'block' : 'none' }}>
                 <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="block group">
                   {typeof post.data.image === 'string' ? (
-                    <div class="aspect-w-16 aspect-h-6 rounded-2xl overflow-hidden mb-4 bg-gray-100">
+                    <div class="aspect-w-16 aspect-h-6 rounded-2xl overflow-hidden mb-4 bg-gray-100 dark:bg-gray-800">
                       <img 
                         src={post.data.image} 
                         alt={('imageAlt' in post.data ? String(post.data.imageAlt) : post.data.title)}
@@ -258,7 +258,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                       />
                     </div>
                   ) : post.data.image ? (
-                    <div class="aspect-w-16 aspect-h-6 rounded-2xl overflow-hidden mb-4 bg-gray-100">
+                    <div class="aspect-w-16 aspect-h-6 rounded-2xl overflow-hidden mb-4 bg-gray-100 dark:bg-gray-800">
                       <img 
                         src={post.data.image.url} 
                         alt={post.data.image.alt || post.data.title}
@@ -266,7 +266,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                       />
                     </div>
                   ) : (
-                    <div class="aspect-w-16 aspect-h-6 rounded-2xl overflow-hidden mb-4 bg-gray-100">
+                    <div class="aspect-w-16 aspect-h-6 rounded-2xl overflow-hidden mb-4 bg-gray-100 dark:bg-gray-800">
                       <img 
                         src="/placeholder.jpg" 
                         alt="No image available"
@@ -274,13 +274,13 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                       />
                     </div>
                   )}
-                  <h2 class="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
+                  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50 group-hover:text-blue-600 transition-colors mb-2">
                     {post.data.title}
                   </h2>
-                  <p class="text-gray-600 mb-4 line-clamp-2">
+                  <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
                     {post.data.description}
                   </p>
-                  <div class="mt-auto pt-4 flex items-center text-sm text-gray-500 border-t border-gray-100">
+                  <div class="mt-auto pt-4 flex items-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-100">
                     <span>{calculateReadingTime(post.body)} min read</span>
                   </div>
                 </a>
@@ -290,7 +290,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
 
           {/* Load More Button */}
           <div class="text-center mb-12">
-            <button id="load-more-btn" class="inline-flex items-center px-6 py-3 border border-gray-200 rounded-full text-gray-700 font-medium hover:bg-gray-50 transition-colors">
+            <button id="load-more-btn" class="inline-flex items-center px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-full text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-700 dark:bg-gray-800 transition-colors">
               Load more <svg class="w-2 h-2 ml-1 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
@@ -319,9 +319,9 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
           </div>
 
           {/* About Card */}
-          <div class="bg-gray-50 rounded-2xl p-6">
-            <h3 class="text-lg font-semibold text-gray-900 mb-3">About the blog</h3>
-            <p class="text-gray-600 mb-4">
+          <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-50 mb-3">About the blog</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
               Nexus Remote Hub is a resource for remote professionals and digital nomads. We share insights, tips, and stories about the future of work.
             </p>
             <a href="/about" class="inline-flex items-center text-blue-600 font-medium group">
@@ -333,13 +333,13 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
           </div>
 
           {/* Popular Tags */}
-          <div class="bg-gray-50 rounded-2xl p-6">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">Popular Tags</h3>
+          <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-50 mb-4">Popular Tags</h3>
             <div class="flex flex-wrap gap-2">
               {allTags.slice(0, 10).map(tag => (
                 <a 
                   href={`/blog?tag=${tag.toLowerCase()}`}
-                  class="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors"
+                  class="inline-flex items-center px-3 py-1.5 rounded-full text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 dark:bg-gray-800 transition-colors"
                 >
                   {tag}
                 </a>
@@ -366,7 +366,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
               </div>
               <button
                 type="submit"
-                class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-blue-700 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-600 focus:ring-white transition-colors"
+                class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-blue-700 bg-white dark:bg-gray-800 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-600 focus:ring-white transition-colors"
               >
                 Subscribe
               </button>

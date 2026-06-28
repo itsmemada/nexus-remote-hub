@@ -11,10 +11,10 @@ const recentPosts = posts.filter(post => post.id !== featuredPost.id).slice(0, 3
 
 <Layout title="Home">
   <!-- Hero Section -->
-  <section class="relative bg-white text-gray-900 py-20">
+  <section class="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-50 py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-6">Welcome to Nexus Remote Hub</h1>
-      <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-gray-600">
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-gray-600 dark:text-gray-400">
         Discover the latest insights, tutorials, and resources for remote work, digital nomad lifestyle, and productivity.
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -26,7 +26,7 @@ const recentPosts = posts.filter(post => post.id !== featuredPost.id).slice(0, 3
         </a>
         <a 
           href="#featured" 
-          class="inline-flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transition-colors duration-200"
+          class="inline-flex items-center justify-center px-8 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 md:py-4 md:text-lg md:px-10 transition-colors duration-200"
         >
           Featured Post
         </a>
@@ -36,7 +36,7 @@ const recentPosts = posts.filter(post => post.id !== featuredPost.id).slice(0, 3
 
   <!-- Featured Post -->
   {featuredPost && (
-    <section id="featured" class="py-16 bg-white">
+    <section id="featured" class="py-16 bg-white dark:bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
           <div class="mb-8 lg:mb-0">
@@ -70,14 +70,14 @@ const recentPosts = posts.filter(post => post.id !== featuredPost.id).slice(0, 3
             </div>
           </div>
           <div class="prose max-w-none">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Latest from the Blog</h2>
-            <p class="text-gray-600 mb-6">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-6">Latest from the Blog</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
               Stay updated with our latest articles, tutorials, and insights on remote work, productivity, and digital nomad lifestyle.
             </p>
             <div class="space-y-6">
               {recentPosts.map((post) => (
                 <div class="border-l-4 border-indigo-200 pl-4 py-1">
-                  <h3 class="text-lg font-semibold text-gray-900 hover:text-indigo-600 transition-colors">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                     <a href={`/blog/${post.id.replace(/\.md$/, '')}/`}>
                       {post.data.title}
                     </a>
@@ -110,11 +110,11 @@ const recentPosts = posts.filter(post => post.id !== featuredPost.id).slice(0, 3
   )}
 
   <!-- Categories Section -->
-  <section class="py-16 bg-gray-50">
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Explore Topics</h2>
-        <p class="mt-4 text-xl text-gray-600">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-50 sm:text-4xl">Explore Topics</h2>
+        <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">
           Discover content tailored to your interests
         </p>
       </div>
@@ -141,14 +141,14 @@ const recentPosts = posts.filter(post => post.id !== featuredPost.id).slice(0, 3
             icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
           }
         ].map((category) => (
-          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md dark:shadow-gray-900/50 hover:shadow-lg transition-shadow duration-300">
             <div class="w-12 h-12 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600 mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={category.icon} />
               </svg>
             </div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">{category.name}</h3>
-            <p class="text-gray-600">{category.description}</p>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-50 mb-2">{category.name}</h3>
+            <p class="text-gray-600 dark:text-gray-400">{category.description}</p>
           </div>
         ))}
       </div>
@@ -161,10 +161,10 @@ const recentPosts = posts.filter(post => post.id !== featuredPost.id).slice(0, 3
       <div class="bg-indigo-50 rounded-2xl px-6 py-16 sm:p-16">
         <div class="max-w-xl mx-auto lg:max-w-none lg:flex lg:items-center lg:justify-between">
           <div class="lg:w-0 lg:flex-1">
-            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50">
               Stay updated
             </h2>
-            <p class="mt-4 max-w-3xl text-lg text-gray-600">
+            <p class="mt-4 max-w-3xl text-lg text-gray-600 dark:text-gray-400">
               Subscribe to our newsletter and never miss our latest articles and updates.
             </p>
           </div>
@@ -177,7 +177,7 @@ const recentPosts = posts.filter(post => post.id !== featuredPost.id).slice(0, 3
                 type="email"
                 autocomplete="email"
                 required
-                class="w-full px-5 py-3 border border-gray-300 shadow-sm placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs rounded-md"
+                class="w-full px-5 py-3 border border-gray-300 dark:border-gray-600 shadow-sm placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs rounded-md"
                 placeholder="Enter your email"
               />
               <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
