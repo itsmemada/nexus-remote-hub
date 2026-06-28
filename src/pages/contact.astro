@@ -20,54 +20,54 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Contact Form Section -->
-  <section class="bg-white py-16 sm:py-24">
+  <section class="bg-white dark:bg-gray-900 py-16 sm:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:grid lg:grid-cols-2 lg:gap-16">
         <div class="mb-12 lg:mb-0">
-          <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-6">Get in Touch</h2>
-          <p class="text-lg text-gray-600 mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-50 sm:text-4xl mb-6">Get in Touch</h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
             Fill out the form and our team will get back to you within 24 hours. For immediate assistance, please call or email us directly.
           </p>
           
           <div class="space-y-6">
             <div class="flex items-start">
-              <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg">
-                <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg">
+                <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div class="ml-4">
-                <h3 class="text-lg font-medium text-gray-900">Email</h3>
-                <p class="text-gray-600">info@nexus404.pl</p>
-                <p class="text-sm text-gray-500">We'll respond within 24 hours</p>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-50">Email</h3>
+                <p class="text-gray-600 dark:text-gray-400">info@nexus404.pl</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">We'll respond within 24 hours</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="bg-white shadow-xl rounded-2xl p-6 sm:p-8">
+        <div class="bg-white dark:bg-gray-800 shadow-xl dark:shadow-gray-900/50 rounded-2xl p-6 sm:p-8">
           <form class="space-y-6">
             {/* IMPORTANT: This contact form *must* be fully functional. Ensure messages submitted here are sent to a monitored email address or integrated with a backend service. A non-functional form is a common reason for AdSense rejection. */}
             <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
               <div>
-                <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500">
+                <label for="first-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">First name</label>
+                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500">
               </div>
 
               <div>
-                <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500">
+                <label for="last-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Last name</label>
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500">
               </div>
             </div>
 
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500">
+              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500">
             </div>
 
             <div>
-              <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
-              <select id="subject" name="subject" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500">
+              <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Subject</label>
+              <select id="subject" name="subject" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500">
                 <option>General Inquiry</option>
                 <option>Partnership</option>
                 <option>Support</option>
@@ -77,9 +77,9 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <div>
-              <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+              <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
               <div class="mt-1">
-                <textarea id="message" name="message" rows="4" class="block w-full border border-gray-300 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                <textarea id="message" name="message" rows="4" class="block w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded-md shadow-sm py-3 px-4 focus:ring-blue-500 focus:border-blue-500"></textarea>
               </div>
             </div>
 
@@ -88,14 +88,14 @@ import Layout from '../layouts/Layout.astro';
                 <input id="privacy-policy" name="privacy-policy" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-1">
               </div>
               <div class="ml-3">
-                <label for="privacy-policy" class="text-sm text-gray-500">
-                  I agree to the <a href="/privacy" class="text-blue-600 hover:text-blue-500">Privacy Policy</a> and <a href="/terms" class="text-blue-600 hover:text-blue-500">Terms of Service</a>.
+                <label for="privacy-policy" class="text-sm text-gray-500 dark:text-gray-400">
+                  I agree to the <a href="/privacy" class="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">Privacy Policy</a> and <a href="/terms" class="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">Terms of Service</a>.
                 </label>
               </div>
             </div>
 
             <div>
-              <button type="submit" class="w-full flex justify-center py-3 px-6 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+              <button type="submit" class="w-full flex justify-center py-3 px-6 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-900 transition-colors">
                 Send Message
               </button>
             </div>
@@ -106,59 +106,59 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- FAQ Section -->
-  <section class="bg-gray-50 py-16 sm:py-24">
+  <section class="bg-gray-50 dark:bg-gray-800 py-16 sm:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">Frequently Asked Questions</h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Can't find what you're looking for? Check out our <a href="/faq" class="text-blue-600 hover:text-blue-500 font-medium">full FAQ page</a>.
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          Can't find what you're looking for? Check out our <a href="/faq" class="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 font-medium">full FAQ page</a>.
         </p>
       </div>
 
       <div class="max-w-3xl mx-auto">
         <div class="space-y-4">
           <!-- FAQ Item 1 -->
-          <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 overflow-hidden">
             <button class="w-full px-6 py-5 text-left focus:outline-none">
               <div class="flex items-center justify-between">
-                <h3 class="text-lg font-medium text-gray-900">How quickly will I receive a response?</h3>
-                <svg class="h-6 w-6 text-gray-400 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-50">How quickly will I receive a response?</h3>
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
             </button>
             <div class="px-6 pb-5">
-              <p class="text-gray-600">We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call our support line.</p>
+              <p class="text-gray-600 dark:text-gray-400">We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call our support line.</p>
             </div>
           </div>
 
           <!-- FAQ Item 2 -->
-          <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 overflow-hidden">
             <button class="w-full px-6 py-5 text-left focus:outline-none">
               <div class="flex items-center justify-between">
-                <h3 class="text-lg font-medium text-gray-900">Do you offer enterprise solutions?</h3>
-                <svg class="h-6 w-6 text-gray-400 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-50">Do you offer enterprise solutions?</h3>
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
             </button>
             <div class="px-6 pb-5">
-              <p class="text-gray-600">Yes, we offer custom enterprise solutions for teams of all sizes. Contact our sales team for a personalized demo and pricing.</p>
+              <p class="text-gray-600 dark:text-gray-400">Yes, we offer custom enterprise solutions for teams of all sizes. Contact our sales team for a personalized demo and pricing.</p>
             </div>
           </div>
 
           <!-- FAQ Item 3 -->
-          <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 overflow-hidden">
             <button class="w-full px-6 py-5 text-left focus:outline-none">
               <div class="flex items-center justify-between">
-                <h3 class="text-lg font-medium text-gray-900">What's your refund policy?</h3>
-                <svg class="h-6 w-6 text-gray-400 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-50">What's your refund policy?</h3>
+                <svg class="h-6 w-6 text-gray-400 dark:text-gray-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
             </button>
             <div class="px-6 pb-5">
-              <p class="text-gray-600">We offer a 30-day money-back guarantee on all our plans. If you're not satisfied, we'll give you a full refund, no questions asked.</p>
+              <p class="text-gray-600 dark:text-gray-400">We offer a 30-day money-back guarantee on all our plans. If you're not satisfied, we'll give you a full refund, no questions asked.</p>
             </div>
           </div>
         </div>
@@ -203,11 +203,13 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   /* Add smooth transitions for FAQ accordion */
-  .bg-white.rounded-lg.shadow button + div {
+  .bg-white.rounded-lg.shadow button + div,
+  .dark .bg-white.dark\:bg-gray-800.rounded-lg.shadow button + div {
     display: none;
   }
   
-  .bg-white.rounded-lg.shadow button + div.block {
+  .bg-white.rounded-lg.shadow button + div.block,
+  .dark .bg-white.dark\:bg-gray-800.rounded-lg.shadow button + div.block {
     display: block;
     animation: fadeIn 0.3s ease-in-out;
   }
