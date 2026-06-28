@@ -1,5 +1,5 @@
 ---
-title: ""I Tracked Every Hour for 30 Days: The Real Time Breakdown of a Remote Worker's Week""
+title: "I Tracked Every Hour for 30 Days: The Real Time Breakdown of a Remote Worker's Week"
 description: "Where does your workday actually go? I tracked every single hour for a month — and the data forced me to rethink everything about how I work remotely."
 pubDate: 2026-06-25
 updatedDate: 2026-06-25
