@@ -95,6 +95,12 @@ const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}ima
     <!-- Umami Analytics -->
     <script defer src="/umami/script.js" data-website-id="31ffaf81-b90b-41db-b763-41506ce07464"></script>
 
+    {/* JSON-LD Structured Data - Website */}
+    <script type="application/ld+json" set:html={`{"@context":"https://schema.org","@type":"WebSite","name":"Nexus Remote Hub","url":"${siteUrl}","description":"Remote work strategies, digital nomad guides, and productivity insights.","author":{"@type":"Person","name":"Mada","url":"https://nexus404.pl"},"potentialAction":{"@type":"SearchAction","target":"${siteUrl}/blog?q={search_term_string}","query-input":"required name=search_term_string"}}`} />
+
+    {/* RSS Discovery */}
+    <link rel="alternate" type="application/rss+xml" title="Nexus Remote Hub RSS Feed" href="/rss.xml" />
+
   </head>
   <body class="min-h-screen bg-white flex flex-col">
     <header class="bg-white shadow-sm sticky top-0 z-50">

@@ -28,6 +28,41 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
+// Build JSON-LD Article schema
+const postUrl = `https://nexus-remote-hub.vercel.app/blog/${post.id.replace(/\.md$/, '')}`;
+const imgUrl = typeof post.data.image === 'string' 
+  ? `https://nexus-remote-hub.vercel.app${post.data.image}` 
+  : post.data.image?.url 
+    ? `https://nexus-remote-hub.vercel.app${post.data.image.url}` 
+    : 'https://nexus-remote-hub.vercel.app/images/og-image.jpg';
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": imgUrl,
+  "author": {
+    "@type": "Person",
+    "name": "Mada",
+    "url": "https://nexus404.pl"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nexus Remote Hub",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nexus-remote-hub.vercel.app/images/og-image.jpg"
+    }
+  },
+  "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": (post.data.updatedDate || post.data.pubDate).toISOString(),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": postUrl
+  },
+  "keywords": (post.data.tags || []).join(', ')
+};
+
 // Get related posts (excluding current post)
 const allPosts = (await getCollection('blog'))
   .filter(p => p.id !== post.id && (process.env.NODE_ENV === 'development' || !p.data.draft));
@@ -73,6 +108,9 @@ const readingTime = post.data.readingTime ||
     { label: 'Blog', href: '/blog' },
     { label: post.data.title }
   ]} />
+  {/* JSON-LD Article Schema */}
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
   <article class="bg-white">
     {/* Featured Image */}
     {typeof post.data.image === 'string' ? (
