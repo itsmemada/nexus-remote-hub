@@ -1,12 +1,12 @@
 ---
-title: ""Remote Work and Relationships: How Working From Home Changes Everything""
+title: "Remote Work and Relationships: How Working From Home Changes Everything"
 description: "The remote work dream sold us freedom and flexibility. But nobody mentioned how it would reshape our marriages, friendships, and the way we connect with the people we love."
 pubDate: 2026-06-27
 updatedDate: 2026-06-27
 tags: ["remote-work", "work-life-balance", "relationships", "mental-health", "digital-nomad"]
 draft: false
 image:
-  url: "/placeholder.jpg"
+  url: "/images/placeholder.jpg"
   alt: "Remote work and relationships - laptop at a kitchen table with coffee"
 ---
 
