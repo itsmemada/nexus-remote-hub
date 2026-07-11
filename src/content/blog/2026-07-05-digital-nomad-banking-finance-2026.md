@@ -1,12 +1,12 @@
 ---
-title: ""Digital Nomad Banking title: "Digital Nomad Banking & Finance 2026: Managing Money Across Borders Without Getting Screwed on Fees" Finance 2026: Managing Money Across Borders Without Getting Screwed on Fees""
+title: "Digital Nomad Banking & Finance 2026: Managing Money Across Borders Without Getting Screwed on Fees"
 description: "Most nomad finance advice is written by people who've never had their card declined abroad at 2 AM. This guide is built from 3+ years of full-time banking across 25+ countries — real accounts, real fees, real screw-ups."
 pubDate: 2026-07-05
 updatedDate: 2026-07-05
 tags: ["digital-nomad", "banking", "finance", "remote-work", "travel", "taxes"]
 draft: false
 image:
-  url: "/placeholder.jpg"
+  url: "/images/lifestyle-nature.jpg"
   alt: "Digital nomad managing finances on laptop with multiple bank cards and currencies"
 ---
 

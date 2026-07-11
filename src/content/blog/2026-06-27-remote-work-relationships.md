@@ -6,8 +6,8 @@ updatedDate: 2026-06-27
 tags: ["remote-work", "work-life-balance", "relationships", "mental-health", "digital-nomad"]
 draft: false
 image:
-  url: "/images/placeholder.jpg"
-  alt: "Remote work and relationships - laptop at a kitchen table with coffee"
+  url: "/images/lifestyle-nature.jpg"
+  alt: "Remote Work and Relationships — How Working From Home Changes Everything featured image"
 ---
 
 # Remote Work and Relationships: How Working From Home Changes Everything
