@@ -6,8 +6,8 @@ updatedDate: 2026-06-25
 tags: ["remote work", "productivity", "time management", "data-driven"]
 draft: false
 image:
-  url: "/placeholder.jpg"
-  alt: "I Tracked Every Hour for 30 Days: The Real Time Breakdown of a Remote Worker's Week featured image"
+  url: "/images/productivity-focus.jpg"
+  alt: "Remote worker tracking time with productivity tools and planner"
 ---
 
 # I Tracked Every Hour for 30 Days: The Real Time Breakdown of a Remote Worker's Week
