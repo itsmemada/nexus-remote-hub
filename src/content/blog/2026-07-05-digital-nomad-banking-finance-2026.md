@@ -6,8 +6,8 @@ updatedDate: 2026-07-05
 tags: ["digital-nomad", "banking", "finance", "remote-work", "travel", "taxes"]
 draft: false
 image:
-  url: "/images/lifestyle-nature.jpg"
-  alt: "Digital nomad managing finances on laptop with multiple bank cards and currencies"
+  url: "/images/nomad-travel-laptop.jpg"
+  alt: "Digital nomad working on laptop while traveling with backpack"
 ---
 
 # Digital Nomad Banking & Finance 2026: Managing Money Across Borders Without Getting Screwed on Fees

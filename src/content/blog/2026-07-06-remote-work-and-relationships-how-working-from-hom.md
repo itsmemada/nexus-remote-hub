@@ -15,8 +15,8 @@ updatedDate: 2026-07-06
 tags: ["lifestyle", "wellness", "work-life balance", "mental health", "AI"]
 draft: false
 image:
-  url: "/images/lifestyle-nature.jpg"
-  alt: "Remote Work and Relationships — How Working From Home Changes Your Marriage, Friendships, and Social Life featured image"
+  url: "/images/productivity-desk.jpg"
+  alt: "Remote worker at clean desk setup balancing work and personal life"
 ---
 
 # "Remote Work and Relationships: How Working From Home Changes Your Marriage, Friendships, and Social Life"
