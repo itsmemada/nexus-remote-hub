@@ -8,8 +8,8 @@
 #    WRONG: description: Some "quote" here  →  RIGHT: description: "Some \"quote\" here"
 # 4. Tags must be a YAML array: tags: ["tag1", "tag2"]
 # 5. Image URL MUST point to a real file in public/images/ — NO placeholders allowed
-title: ""The Digital Nomad Packing List 2026: 47 Items I Actually Use After 2 Years of Full-Time Travel""
-description: "\"Every \"digital nomad packing list\" on the internet is written by someone who packed once. This one is refined after 2 years of full-time travel across 20+ co...\""
+title: "The Digital Nomad Packing List 2026: 47 Items I Actually Use After 2 Years of Full-Time Travel"
+description: "Every \"digital nomad packing list\" on the internet is written by someone who packed once. This one is refined after 2 years of full-time travel across 20+ co..."
 pubDate: 2026-07-11
 updatedDate: 2026-07-11
 tags: ["digital nomad", "remote work", "travel"]

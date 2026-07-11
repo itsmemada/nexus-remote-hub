@@ -8,8 +8,8 @@
 #    WRONG: description: Some "quote" here  →  RIGHT: description: "Some \"quote\" here"
 # 4. Tags must be a YAML array: tags: ["tag1", "tag2"]
 # 5. Image URL MUST point to a real file in public/images/ — NO placeholders allowed
-title: ""Test Post: With Colons and Special Characters""
-description: "\"This is a test post with \"quotes\" and an em-dash — and apostrophes like it's here.\""
+title: "Test Post: With Colons and Special Characters"
+description: "This is a test post with \"quotes\" and an em-dash — and apostrophes like it's here."
 pubDate: 2026-07-11
 updatedDate: 2026-07-11
 tags: ["remote work", "work from home", "productivity"]

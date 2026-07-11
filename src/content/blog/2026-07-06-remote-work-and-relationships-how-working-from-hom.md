@@ -8,7 +8,7 @@
 #    WRONG: description: Some "quote" here  →  RIGHT: description: "Some \"quote\" here"
 # 4. Tags must be a YAML array: tags: ["tag1", "tag2"]
 # 5. Image URL MUST point to a real file in public/images/ — NO placeholders allowed
-title: """"Remote Work and Relationships: How Working From Home Changes Your Marriage, Friendships, and Social Life""""
+title: "Remote Work and Relationships: How Working From Home Changes Your Marriage, Friendships, and Social Life"
 description: "Nobody talks about this when they sell you the remote work dream. But the impact on your personal relationships is real — and it's not all positive."
 pubDate: 2026-07-06
 updatedDate: 2026-07-06
