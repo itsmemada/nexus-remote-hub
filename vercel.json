@@ -1,6 +1,8 @@
 {
-  "framework": "astro",
-  "buildCommand": "npx astro build",
-  "outputDirectory": "dist",
-  "installCommand": "npm install"
+  "rewrites": [
+    {
+      "source": "/stats/:match*",
+      "destination": "https://130.61.95.110/:match*"
+    }
+  ]
 }
