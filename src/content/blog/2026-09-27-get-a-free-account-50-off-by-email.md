@@ -13,7 +13,7 @@ description: 1. Hook - Start with a surprising statistic or counterintuitive ins
 pubDate: 2026-09-27
 updatedDate: 2026-09-27
 tags: ["tech", "tools", "software", "productivity", "AI"]
-draft: false
+draft: true
 image:
   url: "/images/ai-freelancers-hero.jpg"
   alt: "Ai Freelancers Hero featured image"

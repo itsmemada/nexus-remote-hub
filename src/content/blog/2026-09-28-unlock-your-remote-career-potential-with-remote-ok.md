@@ -13,7 +13,7 @@ description: "Practical guide to unlock your remote career potential with remote
 pubDate: 2026-09-28
 updatedDate: 2026-09-28
 tags: ["remote work", "work from home", "productivity", "AI"]
-draft: false
+draft: true
 image:
   url: "/images/og-image.jpg"
   alt: "Og Image featured image"

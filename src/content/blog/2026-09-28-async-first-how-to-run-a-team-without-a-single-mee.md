@@ -13,7 +13,7 @@ description: "Practical guide to async first: how to run a team without a single
 pubDate: 2026-09-28
 updatedDate: 2026-09-28
 tags: ["productivity", "remote work", "time management", "AI", "async communication"]
-draft: false
+draft: true
 image:
   url: "/images/roadmap-beach.jpg"
   alt: "Roadmap Beach featured image"

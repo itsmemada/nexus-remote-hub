@@ -13,7 +13,7 @@ description: "Practical guide to find your people — covering find, start, peop
 pubDate: 2026-10-01
 updatedDate: 2026-10-01
 tags: ["remote work", "work from home", "productivity", "AI"]
-draft: false
+draft: true
 image:
   url: /images/find-your-people-hero.jpg
   alt: "Find your people featured image"

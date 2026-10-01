@@ -13,7 +13,7 @@ description: "Practical guide to work from anywhere: 2026 trends and predictions
 pubDate: 2026-10-01
 updatedDate: 2026-10-01
 tags: ["remote work", "work from home", "productivity", "AI"]
-draft: false
+draft: true
 image:
   url: /images/work-from-anywhere-2026-trends-and-predictions-hero.jpg
   alt: "Work From Anywhere — 2026 Trends and Predictions featured image"

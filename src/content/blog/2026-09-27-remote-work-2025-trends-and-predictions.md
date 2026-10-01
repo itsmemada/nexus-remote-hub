@@ -13,7 +13,7 @@ description: "Practical guide to remote work: 2025 trends and predictions — co
 pubDate: 2026-09-27
 updatedDate: 2026-09-27
 tags: ["remote work", "work from home", "productivity", "AI"]
-draft: false
+draft: true
 image:
   url: "/images/remote-work-fundamental-shift.jpg"
   alt: "Remote Work Fundamental Shift featured image"

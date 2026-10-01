@@ -13,7 +13,7 @@ description: "Practical guide to 🌍 find your people — covering content, pro
 pubDate: 2026-09-27
 updatedDate: 2026-09-27
 tags: ["remote work", "work from home", "productivity", "AI"]
-draft: false
+draft: true
 image:
   url: "/images/remote-team-communication.jpg"
   alt: "Remote Team Communication featured image"

@@ -13,7 +13,7 @@ description: "Practical guide to digital nomad: 2026 trends and predictions — 
 pubDate: 2026-10-01
 updatedDate: 2026-10-01
 tags: ["digital nomad", "remote work", "travel", "AI"]
-draft: false
+draft: true
 image:
   url: /images/digital-nomad-2026-trends-and-predictions-hero.jpg
   alt: "Digital Nomad — 2026 Trends and Predictions featured image"

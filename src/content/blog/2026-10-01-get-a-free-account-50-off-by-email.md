@@ -13,7 +13,7 @@ description: "Practical guide to get a free account + 50% off by email — cover
 pubDate: 2026-10-01
 updatedDate: 2026-10-01
 tags: ["tech", "tools", "software", "productivity", "AI"]
-draft: false
+draft: true
 image:
   url: /images/get-a-free-account-50-off-by-email-hero.jpg
   alt: "Get a free account + 50% off by email featured image"

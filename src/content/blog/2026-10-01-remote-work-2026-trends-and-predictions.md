@@ -13,7 +13,7 @@ description: "Practical guide to remote work: 2026 trends and predictions — co
 pubDate: 2026-10-01
 updatedDate: 2026-10-01
 tags: ["remote work", "work from home", "productivity", "AI"]
-draft: false
+draft: true
 image:
   url: /images/remote-work-2026-trends-and-predictions-hero.jpg
   alt: "Remote Work — 2026 Trends and Predictions featured image"

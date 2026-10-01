@@ -13,7 +13,7 @@ description: "Practical guide to the hidden cost of 'free' nomad visas: what no 
 pubDate: 2026-09-28
 updatedDate: 2026-09-28
 tags: ["digital nomad", "remote work", "travel", "AI", "legal"]
-draft: false
+draft: true
 image:
   url: "/images/digital-nomad-tax.jpg"
   alt: "Digital Nomad Tax featured image"
