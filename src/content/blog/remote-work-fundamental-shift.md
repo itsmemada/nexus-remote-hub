@@ -5,7 +5,7 @@ pubDate: 2026-05-21
 tags: ["remote work", "future of work", "digital nomad", "productivity"]
 author: "itsmemada"
 image:
-  url: "/images/new-ai-robot.jpg"
+  url: "/images/remote-work-fundamental-shift.jpg"
   alt: "The fundamental shift in remote work — AI, automation, and the new workplace"
 ---
 
