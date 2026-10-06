@@ -5,7 +5,7 @@ pubDate: 2026-06-18
 tags: ["remote-work", "productivity", "deep-work", "focus", "time-management", "psychology"]
 heroImage: "/images/posts/context-switching-remote-work.svg"
 image:
-  url: "/images/new-find-people.jpg"
+  url: "/images/new-context-switching-2026.jpg"
   alt: "Remote worker surrounded by notifications and multiple screens showing context switching chaos"
 ---
 
