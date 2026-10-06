@@ -6,7 +6,7 @@ updatedDate: 2026-07-16
 tags: ["digital nomad", "insurance", "health insurance", "travel insurance", "remote work", "risk management"]
 draft: false
 image:
-  url: "/placeholder.jpg"
+  url: "/images/new-banner-2026-07-16-digital-nomad-insurance-2026-health-travel-gear.jpg"
   alt: "Digital nomad insurance guide — health, travel, and gear coverage for remote workers in 2026"
 ---
 

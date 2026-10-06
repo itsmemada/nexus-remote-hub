@@ -6,7 +6,7 @@ updatedDate: 2026-06-04
 tags: ["remote-work", "AI", "freelancing", "career", "productivity"]
 draft: false
 image:
-  url: "/images/ai-freelancers-hero.jpg"
+  url: "/images/new-banner-ai-replacing-freelancers-2026.jpg"
   alt: "AI robot hand reaching toward human — the future of freelance work"
 ---
 

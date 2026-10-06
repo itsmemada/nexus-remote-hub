@@ -4,7 +4,7 @@ description: "Remote teams are drowning in meetings. This 5-question decision fr
 pubDate: 2026-06-11
 tags: ["remote work", "meetings", "async communication", "productivity", "team management", "framework"]
 image:
-  url: "/images/async-meeting-calculator.jpg"
+  url: "/images/new-banner-2026-06-11-async-meeting-calculator.jpg"
   alt: "Remote team meeting — eliminating pointless meetings with async communication"
 ---
 

@@ -6,7 +6,7 @@ updatedDate: 2026-10-01
 tags: ["digital nomad", "remote work", "travel", "data"]
 draft: false
 image:
-  url: /images/digital-nomad-2026-trends-and-predictions-hero.jpg
+  url: /images/new-banner-2026-10-01-digital-nomad-2026-trends-and-predictions.jpg
   alt: "Digital nomad working from a cafe in Southeast Asia"
 ---
 

@@ -5,7 +5,7 @@ pubDate: 2026-05-28
 tags: ["digital nomad", "taxes", "remote work", "entrepreneurship", "legal"]
 author: "itsmemada"
 image:
-  url: "/images/digital-nomad-tax.jpg"
+  url: "/images/new-banner-digital-nomad-tax-guide.jpg"
   alt: "Tax documents, calculator and laptop representing digital nomad tax planning"
 ---
 

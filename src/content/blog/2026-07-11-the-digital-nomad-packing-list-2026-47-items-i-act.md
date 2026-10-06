@@ -15,7 +15,7 @@ updatedDate: 2026-07-11
 tags: ["digital nomad", "remote work", "travel"]
 draft: false
 image:
-  url: "/images/remote-work-laptop.jpg"
+  url: "/images/new-digital-nomad-trends.jpg"
   alt: "The Digital Nomad Packing List 2026 — 47 Items I Actually Use After 2 Years of Full-Time Travel featured image"
 ---
 

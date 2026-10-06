@@ -15,7 +15,7 @@ updatedDate: 2026-09-28
 tags: ["digital nomad", "remote work", "travel", "AI", "legal"]
 draft: true
 image:
-  url: "/images/lifestyle-balance.jpg"
+  url: "/images/new-async-first.jpg"
   alt: "Digital Nomad Tax featured image"
 ---
 

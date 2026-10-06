@@ -15,7 +15,7 @@ updatedDate: 2026-08-06
 tags: ["digital nomad", "tax residency", "international tax", "remote work", "legal"]
 draft: false
 image:
-  url: "/images/finance.jpg"
+  url: "/images/new-banner-2026-08-06-digital-nomad-tax-residency-183-day-rule-myth.jpg"
   alt: "Digital Nomad Tax Residency — The 183-Day Rule Myth featured image"
 ---
 

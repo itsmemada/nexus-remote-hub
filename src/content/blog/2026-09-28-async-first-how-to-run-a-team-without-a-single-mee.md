@@ -15,7 +15,7 @@ updatedDate: 2026-09-28
 tags: ["productivity", "remote work", "time management", "AI", "async communication"]
 draft: true
 image:
-  url: "/images/travel-adventure.jpg"
+  url: "/images/new-banner-2026-09-28-async-first-how-to-run-a-team-without-a-single-mee.jpg"
   alt: "Roadmap Beach featured image"
 ---
 

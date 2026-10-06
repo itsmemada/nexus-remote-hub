@@ -6,7 +6,7 @@ updatedDate: 2026-07-05
 tags: ["digital-nomad", "banking", "finance", "remote-work", "travel", "taxes"]
 draft: false
 image:
-  url: "/images/nomad-travel-laptop.jpg"
+  url: "/images/new-remote-work-cafe.jpg"
   alt: "Digital nomad working on laptop while traveling with backpack"
 ---
 

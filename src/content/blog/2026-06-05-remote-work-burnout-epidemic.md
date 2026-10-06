@@ -6,7 +6,7 @@ updatedDate: 2026-06-05
 tags: ["remote-work", "burnout", "productivity", "mental-health", "work-life-balance"]
 draft: false
 image:
-  url: "/images/burnout-hero.jpg"
+  url: "/images/new-banner-2026-06-05-remote-work-burnout-epidemic.jpg"
   alt: "Tired remote worker with laptop showing the reality of work-from-home burnout"
 ---
 

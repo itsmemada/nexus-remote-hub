@@ -6,7 +6,7 @@ updatedDate: 2026-10-01
 tags: ["remote work", "community", "networking", "productivity"]
 draft: false
 image:
-  url: /images/find-your-people-hero.jpg
+  url: /images/new-banner-2026-10-01-find-your-people.jpg
   alt: "Remote workers connecting at a coworking space"
 ---
 

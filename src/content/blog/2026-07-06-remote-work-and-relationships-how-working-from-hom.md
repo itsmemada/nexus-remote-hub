@@ -15,7 +15,7 @@ updatedDate: 2026-07-06
 tags: ["lifestyle", "wellness", "work-life balance", "mental health", "AI"]
 draft: false
 image:
-  url: "/images/productivity-desk.jpg"
+  url: "/images/new-banner-2026-07-06-remote-work-and-relationships-how-working-from-hom.jpg"
   alt: "Remote worker at clean desk setup balancing work and personal life"
 ---
 

@@ -5,7 +5,7 @@ pubDate: 2026-06-20
 tags: ["digital-nomad", "travel", "packing", "remote-work", "gear", "productivity"]
 heroImage: "/images/posts/digital-nomad-packing-list-2026.svg"
 image:
-  url: "/images/nomad-packing-list-2026.jpg"
+  url: "/images/new-banner-2026-06-20-digital-nomad-packing-list-2026.jpg"
   alt: "Digital nomad with backpack and laptop, surrounded by travel gear on a tropical beach"
 ---
 

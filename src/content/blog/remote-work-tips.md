@@ -5,7 +5,7 @@ pubDate: 2025-05-15
 tags: ["remote work", "productivity", "work from home"]
 author: "itsmemada"
 image:
-  url: "/images/remote-work-tips.jpg"
+  url: "/images/new-banner-remote-work-tips.jpg"
   alt: "Modern home office setup for remote work (free Unsplash, served locally)"
 ---
 

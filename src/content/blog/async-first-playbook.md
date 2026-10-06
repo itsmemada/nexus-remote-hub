@@ -5,7 +5,7 @@ pubDate: 2026-05-22
 tags: ["remote work", "async communication", "productivity", "team management", "case study"]
 author: "itsmemada"
 image:
-  url: "/images/async-communication.jpg"
+  url: "/images/new-banner-async-first-playbook.jpg"
   alt: "Team collaborating asynchronously with digital tools and communication platforms"
 featured: true
 ---

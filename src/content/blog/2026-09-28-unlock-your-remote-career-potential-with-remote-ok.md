@@ -15,7 +15,7 @@ updatedDate: 2026-09-28
 tags: ["remote work", "work from home", "productivity", "AI"]
 draft: true
 image:
-  url: "/images/og-image.jpg"
+  url: "/images/new-banner-2026-09-28-unlock-your-remote-career-potential-with-remote-ok.jpg"
   alt: "Og Image featured image"
 ---
 

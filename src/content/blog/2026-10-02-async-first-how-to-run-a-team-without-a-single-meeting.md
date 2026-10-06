@@ -6,7 +6,7 @@ updatedDate: 2026-10-02
 tags: ["remote work", "async communication", "productivity", "team culture"]
 draft: false
 image:
-  url: "/images/async-first-how-to-run-a-team-without-a-single-meeting-hero.jpg"
+  url: "/images/new-banner-2026-10-02-async-first-how-to-run-a-team-without-a-single-meeting.jpg"
   alt: "Async-first remote team"
 ---
 

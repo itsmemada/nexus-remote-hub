@@ -6,7 +6,7 @@ updatedDate: 2026-10-01
 tags: ["tech", "tools", "software", "productivity", "startups"]
 draft: false
 image:
-  url: /images/get-a-free-account-50-off-by-email-hero.jpg
+  url: /images/new-remote-work-laptop-banner.jpg
   alt: "Laptop showing a stack of SaaS dashboards"
 ---
 

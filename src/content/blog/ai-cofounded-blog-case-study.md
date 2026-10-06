@@ -5,7 +5,7 @@ pubDate: 2024-07-01
 tags: ["AI", "automation", "case study", "meta"]
 author: "itsmemada & AI"
 image:
-  url: "/images/ai-cofounded-blog.jpg"
+  url: "/images/new-new-banner-ai-cofounded-blog-case-study.jpg"
   alt: "AI-powered content creation — blog post written with AI assistance"
 featured: true
 ---

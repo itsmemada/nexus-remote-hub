@@ -5,7 +5,7 @@ pubDate: 2025-03-10
 tags: ["remote work", "team communication", "collaboration"]
 author: "itsmemada"
 image:
-  url: "/images/remote-work-focus.jpg"
+  url: "/images/new-async-meeting.jpg"
   alt: "Remote team video call and collaboration (free Unsplash, served locally)"
 ---
 

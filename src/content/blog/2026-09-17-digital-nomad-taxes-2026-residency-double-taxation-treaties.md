@@ -6,7 +6,7 @@ updatedDate: 2026-09-17
 tags: ["digital-nomad", "taxes", "residency", "remote-work", "finance", "legal"]
 draft: false
 image:
-  url: "/images/taxes-2026.jpg"
+  url: "/images/new-banner-2026-09-17-digital-nomad-taxes-2026-residency-double-taxation-treaties.jpg"
   alt: "Digital nomad reviewing tax treaty documents on laptop with coffee and passport"
 ---
 

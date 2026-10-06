@@ -6,7 +6,7 @@ updatedDate: 2026-06-04
 tags: ["digital-nomad", "remote-work", "travel", "visa", "cost-of-living"]
 draft: false
 image:
-  url: "/images/countries-hero.jpg"
+  url: "/images/new-tax-2026.jpg"
   alt: "World map with travel pins — best countries for remote work in 2026"
 ---
 

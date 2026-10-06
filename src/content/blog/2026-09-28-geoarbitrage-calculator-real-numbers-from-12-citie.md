@@ -15,7 +15,7 @@ updatedDate: 2026-09-28
 tags: ["digital nomad", "remote work", "travel", "AI", "economics"]
 draft: true
 image:
-  url: "/images/ai-robot-hand.jpg"
+  url: "/images/new-banner-2026-09-28-geoarbitrage-calculator-real-numbers-from-12-citie.jpg"
   alt: "Digital Nomad Visas 2026 featured image"
 ---
 

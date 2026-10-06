@@ -6,7 +6,7 @@ updatedDate: 2026-10-02
 tags: ["deep-work", "productivity", "2026-trends", "future-of-work", "async-work"]
 draft: false
 image:
-  url: /images/deep-work-2026-trends-and-predictions-hero.jpg
+  url: /images/new-banner-2026-10-02-deep-work-2026-trends-and-predictions.jpg
   alt: "Deep Work 2026 Trends and Predictions featured image"
 ---
 

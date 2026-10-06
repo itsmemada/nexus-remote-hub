@@ -15,7 +15,7 @@ updatedDate: 2026-09-27
 tags: ["remote work", "work from home", "productivity", "AI"]
 draft: true
 image:
-  url: "/images/nomad-cafe-work.jpg"
+  url: "/images/new-deep-work.jpg"
   alt: "Remote Work Fundamental Shift featured image"
 ---
 

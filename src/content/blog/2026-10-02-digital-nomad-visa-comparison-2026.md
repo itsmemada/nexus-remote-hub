@@ -6,7 +6,7 @@ updatedDate: 2026-10-02
 tags: ["digital nomad", "visa", "remote work", "tax", "economics"]
 draft: false
 image:
-  url: /images/digital-nomad-visa-comparison-2026-hero.jpg
+  url: /images/new-lifestyle-balance.jpg
   alt: "Digital Nomad Visa Comparison 2026 featured image"
 ---
 

@@ -6,7 +6,7 @@ updatedDate: 2026-09-10
 tags: ["digital-nomad", "insurance", "health", "remote-work", "travel", "finance"]
 draft: false
 image:
-  url: "/images/health-insurance.jpg"
+  url: "/images/new-banner-2026-09-10-digital-nomad-health-insurance-2026-policies-that-actually-pay-out.jpg"
   alt: "Digital nomad reviewing health insurance policy documents on laptop with coffee"
 ---
 

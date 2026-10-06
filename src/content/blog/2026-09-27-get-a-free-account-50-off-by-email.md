@@ -15,7 +15,7 @@ updatedDate: 2026-09-27
 tags: ["tech", "tools", "software", "productivity", "AI"]
 draft: true
 image:
-  url: "/images/ai-freelancers-hero.jpg"
+  url: "/images/new-banner-2026-09-27-get-a-free-account-50-off-by-email.jpg"
   alt: "Ai Freelancers Hero featured image"
 ---
 
