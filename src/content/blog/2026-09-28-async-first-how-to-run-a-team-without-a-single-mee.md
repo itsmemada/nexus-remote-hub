@@ -15,7 +15,7 @@ updatedDate: 2026-09-28
 tags: ["productivity", "remote work", "time management", "AI", "async communication"]
 draft: true
 image:
-  url: "/images/roadmap-beach.jpg"
+  url: "/images/travel-adventure.jpg"
   alt: "Roadmap Beach featured image"
 ---
 

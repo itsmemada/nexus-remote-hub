@@ -15,7 +15,7 @@ updatedDate: 2026-09-28
 tags: ["digital nomad", "remote work", "travel", "AI", "economics"]
 draft: true
 image:
-  url: "/images/digital-nomad-visas-2026.jpg"
+  url: "/images/ai-robot-hand.jpg"
   alt: "Digital Nomad Visas 2026 featured image"
 ---
 
