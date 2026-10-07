@@ -4,5 +4,47 @@
       "source": "/stats/:match*",
       "destination": "https://130.61.95.110/:match*"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/blog/remote-work-burnout-epidemic",
+      "destination": "/blog/2026-06-05-remote-work-burnout-epidemic",
+      "permanent": true
+    },
+    {
+      "source": "/blog/remote-work-burnout-epidemic/",
+      "destination": "/blog/2026-06-05-remote-work-burnout-epidemic",
+      "permanent": true
+    },
+    {
+      "source": "/blog/workation-economics-2026",
+      "destination": "/blog/2026-06-06-workation-economics-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/workation-economics-2026/",
+      "destination": "/blog/2026-06-06-workation-economics-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/digital-nomad-gear-2026-what-actually-survives-three-years",
+      "destination": "/blog/2026-09-03-digital-nomad-gear-2026-what-actually-survives-three-years",
+      "permanent": true
+    },
+    {
+      "source": "/blog/digital-nomad-gear-2026-what-actually-survives-three-years/",
+      "destination": "/blog/2026-09-03-digital-nomad-gear-2026-what-actually-survives-three-years",
+      "permanent": true
+    },
+    {
+      "source": "/blog/digital-nomad-health-insurance-2026-policies-that-actually-pay-out",
+      "destination": "/blog/2026-09-10-digital-nomad-health-insurance-2026-policies-that-actually-pay-out",
+      "permanent": true
+    },
+    {
+      "source": "/blog/digital-nomad-health-insurance-2026-policies-that-actually-pay-out/",
+      "destination": "/blog/2026-09-10-digital-nomad-health-insurance-2026-policies-that-actually-pay-out",
+      "permanent": true
+    }
   ]
 }
