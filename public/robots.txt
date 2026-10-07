@@ -1,12 +1,4 @@
 User-agent: *
 Allow: /
 
-# Disallow admin or private areas (if any)
-Disallow: /admin/
-Disallow: /private/
-
-# Sitemap location
-Sitemap: https://nexus-remote-hub.vercel.app/sitemap.xml
-
-# Crawl delay (optional - be respectful to server resources)
-Crawl-delay: 1 
+Sitemap: https://www.nexusremotehub.com/sitemap.xml

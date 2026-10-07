@@ -6,7 +6,7 @@ export async function GET() {
   const posts = await getCollection('blog');
   
   // Base URL from environment or default
-  const baseUrl = import.meta.env.SITE || 'https://nexus-remote-hub.vercel.app';
+  const baseUrl = (import.meta.env.SITE || 'https://www.nexusremotehub.com').replace(/\/$/, '');
   
   // Static pages
   const staticPages = [

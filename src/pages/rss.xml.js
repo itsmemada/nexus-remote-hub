@@ -10,7 +10,7 @@ export async function GET(context) {
   return rss({
     title: 'Nexus Remote Hub',
     description: 'Remote work strategies, digital nomad guides, and productivity insights for location-independent professionals.',
-    site: context.site || 'https://nexus-remote-hub.vercel.app',
+    site: context.site || 'https://www.nexusremotehub.com',
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
@@ -25,9 +25,9 @@ export async function GET(context) {
       <managingEditor>jan@nexus404.pl</managingEditor>
       <webMaster>jan@nexus404.pl</webMaster>
       <image>
-        <url>https://nexus-remote-hub.vercel.app/images/og-image.jpg</url>
+        <url>${context.site}images/og-image.jpg</url>
         <title>Nexus Remote Hub</title>
-        <link>https://nexus-remote-hub.vercel.app</link>
+        <link>${context.site}</link>
       </image>
     `,
   });
