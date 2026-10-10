@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Thank you | Nexus Remote Hub"
+  description="Your message has been received. The Nexus Remote Hub team will get back to you shortly."
+>
+  <section class="relative bg-gradient-to-br from-slate-900 to-slate-800 text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 md:pt-32 md:pb-28">
+      <div class="relative z-10 max-w-2xl mx-auto text-center">
+        <div class="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600">
+          <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <span class="block bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">Thank you</span>
+        </h1>
+
+        <p class="text-lg text-slate-200 mb-4">
+          Your message has been received.
+        </p>
+        <p class="text-base text-slate-300 mb-10">
+          We read every message and usually reply within a couple of days. If it is urgent,
+          you can also reach us directly at
+          <a href="mailto:info@nexus404.pl" class="text-blue-300 hover:text-blue-200 underline">info@nexus404.pl</a>.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/blog" class="inline-flex justify-center py-3 px-6 rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+            Read the blog
+          </a>
+          <a href="/" class="inline-flex justify-center py-3 px-6 rounded-md shadow-sm text-base font-medium text-slate-100 bg-slate-700 hover:bg-slate-600 transition-colors">
+            Back to home
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
