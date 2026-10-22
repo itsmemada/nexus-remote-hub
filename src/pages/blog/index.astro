@@ -481,13 +481,127 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
       }
     }
 
+    // Apply current tag filter from URL (for client-side tag filtering on static pages)
+    function applyTagFilter(articles) {
+      const params = new URLSearchParams(window.location.search);
+      const tagParam = params.get('tag');
+      if (!tagParam) return; // No tag filter, show all
+
+      articles.forEach(article => {
+        const articleTags = (article.dataset.tags || '').split(',').map(t => t.trim().toLowerCase());
+        const hasTag = articleTags.includes(tagParam.toLowerCase());
+        // Reset display first (will be overridden by visibleCount logic)
+        if (hasTag) {
+          article.style.display = '';
+        } else {
+          article.style.display = 'none';
+        }
+      });
+    }
+
+    // Get all article elements
+    function getArticles() {
+      return Array.from(postsContainer.querySelectorAll('article'));
+    }
+
+    // Show/hide load more button based on visible articles
+    function updateLoadMoreVisibility(articles) {
+      const hiddenArticles = articles.filter(a => a.style.display === 'none');
+      if (hiddenArticles.length === 0) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-flex';
+      }
+    }
+
+    // Apply sorting and reset visibility
+    function applySort(articles, sortValue) {
+      articles.sort((a, b) => {
+        const dateA = new Date(a.dataset.date).getTime();
+        const dateB = new Date(b.dataset.date).getTime();
+        const titleA = a.dataset.title.toLowerCase();
+        const titleB = b.dataset.title.toLowerCase();
+        const readingA = parseInt(a.dataset.readingTime || '0', 10);
+        const readingB = parseInt(b.dataset.readingTime || '0', 10);
+
+        switch (sortValue) {
+          case 'date-asc':
+            return dateA - dateB;
+          case 'date-desc':
+            return dateB - dateA;
+          case 'title-asc':
+            return titleA.localeCompare(titleB);
+          case 'title-desc':
+            return titleB.localeCompare(titleA);
+          case 'reading-asc':
+            return parseInt(a.dataset.readingTime || '0', 10) - parseInt(b.dataset.readingTime || '0', 10);
+          case 'reading-desc':
+            return parseInt(b.dataset.readingTime || '0', 10) - parseInt(a.dataset.readingTime || '0', 10);
+          default:
+            return dateB - dateA;
+        }
+      });
+
+      // Re-append sorted articles
+      articles.forEach((article, index) => {
+        postsContainer.appendChild(article);
+      });
+    }
+
+    // Apply tag filter from URL
+    function applyTagFilterFromURL(articles) {
+      const params = new URLSearchParams(window.location.search);
+      const tagParam = params.get('tag');
+      if (!tagParam) return articles; // No tag filter
+
+      return articles.filter(article => {
+        const articleTags = (article.dataset.tags || '').split(',').map(t => t.trim().toLowerCase());
+        return articleTags.includes(tagParam.toLowerCase());
+      });
+    }
+
+    // Reset visible state based on current sort/tag
+    function resetVisibility(articles) {
+      const params = new URLSearchParams(window.location.search);
+      const hasTagFilter = params.has('tag');
+
+      articles.forEach((article, index) => {
+        // First apply tag filter
+        let show = true;
+        if (hasTagFilter) {
+          const tagParam = new URLSearchParams(window.location.search).get('tag');
+          const articleTags = (article.dataset.tags || '').split(',').map(t => t.trim().toLowerCase());
+          show = articleTags.includes(tagParam.toLowerCase());
+        }
+
+        // Then apply pagination
+        if (show && index < postsPerPage) {
+          article.style.display = 'block';
+        } else {
+          article.style.display = 'none';
+        }
+      });
+      visibleCount = Math.min(postsPerPage, articles.filter(a => a.style.display !== 'none').length);
+      updateLoadMoreVisibility(articles);
+    }
+
     loadMoreBtn.addEventListener('click', () => {
       const articles = getArticles();
+      const params = new URLSearchParams(window.location.search);
+      const hasTagFilter = params.has('tag');
+
       for (let i = visibleCount; i < visibleCount + postsPerPage && i < articles.length; i++) {
-        (articles[i] as HTMLElement).style.display = 'block';
+        const article = articles[i];
+        // Check tag filter
+        if (hasTagFilter) {
+          const tagParam = new URLSearchParams(window.location.search).get('tag');
+          const articleTags = (article.dataset.tags || '').split(',').map(t => t.trim().toLowerCase());
+          if (!articleTags.includes(tagParam.toLowerCase())) continue;
+        }
+        (article as HTMLElement).style.display = 'block';
       }
       visibleCount += postsPerPage;
-      updateLoadMoreVisibility(articles);
+      updateLoadMoreVisibility(getArticles());
     });
 
     // Client-side sorting
@@ -511,45 +625,54 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
               return dateA - dateB;
             case 'date-desc':
               return dateB - dateA;
-            case 'title-asc':
-              return titleA.localeCompare(titleB);
-            case 'title-desc':
-              return titleB.localeCompare(titleA);
-            case 'reading-asc':
-              return readingA - readingB;
-            case 'reading-desc':
-              return readingB - readingA;
-            default:
-              return dateB - dateA;
-          }
-        });
-
-        // Re-append sorted articles
-        articles.forEach((article, index) => {
-          postsContainer.appendChild(article);
-          // Reset visible count logic
-          if (index < postsPerPage) {
-            article.style.display = 'block';
-          } else {
-            article.style.display = 'none';
-          }
-        });
-        visibleCount = Math.min(postsPerPage, articles.length);
-        updateLoadMoreVisibility(articles);
+          case 'title-asc':
+            return titleA.localeCompare(titleB);
+          case 'title-desc':
+            return titleB.localeCompare(titleA);
+          case 'reading-asc':
+            return parseInt(a.dataset.readingTime || '0', 10) - parseInt(b.dataset.readingTime || '0', 10);
+          case 'reading-desc':
+            return parseInt(b.dataset.readingTime || '0', 10) - parseInt(a.dataset.readingTime || '0', 10);
+          default:
+            return dateB - dateA;
+        }
       });
-    }
+
+      // Re-append sorted articles
+      articles.forEach((article, index) => {
+        postsContainer.appendChild(article);
+      });
+
+      // Reset visibility after sort
+      resetVisibility(getArticles());
+    });
 
     loadMoreBtn.addEventListener('click', () => {
       const articles = getArticles();
+      const params = new URLSearchParams(window.location.search);
+      const hasTagFilter = params.has('tag');
+
       for (let i = visibleCount; i < visibleCount + postsPerPage && i < articles.length; i++) {
-        (articles[i] as HTMLElement).style.display = 'block';
+        const article = articles[i];
+        // Check tag filter
+        if (hasTagFilter) {
+          const tagParam = params.get('tag');
+          const articleTags = (article.dataset.tags || '').split(',').map(t => t.trim().toLowerCase());
+          if (!articleTags.includes(tagParam.toLowerCase())) continue;
+        }
+        (article as HTMLElement).style.display = 'block';
       }
       visibleCount += postsPerPage;
-      updateLoadMoreVisibility(articles);
+      updateLoadMoreVisibility(getArticles());
     });
 
-    // Initialize visibility
-    updateLoadMoreVisibility(getArticles());
+    // Initialize: apply tag filter from URL if present, then reset visibility
+    const initialArticles = getArticles();
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('tag')) {
+      // Tag filter will be applied by resetVisibility
+    }
+    resetVisibility(initialArticles);
   });
 </script>
 
