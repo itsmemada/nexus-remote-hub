@@ -460,64 +460,46 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
   });
 
   document.addEventListener('DOMContentLoaded', () => {
-    // Load More functionality
+    // ========== CONFIG ==========
     const postsPerPage = 6;
-    let visibleCount = postsPerPage;
     const postsContainer = document.getElementById('blog-posts-list');
     const loadMoreBtn = document.getElementById('load-more-btn');
-    if (!loadMoreBtn) return;
+    const sortSelect = document.getElementById('sort-select');
+    if (!postsContainer || !loadMoreBtn) return;
 
-    // Get all article elements
-    function getArticles() {
+    // ========== HELPERS ==========
+    function getAllArticles() {
       return Array.from(postsContainer.querySelectorAll('article'));
     }
 
-    // Show/hide load more button based on visible articles
-    function updateLoadMoreVisibility(articles) {
-      const hiddenArticles = articles.filter(a => a.style.display === 'none');
-      if (hiddenArticles.length === 0) {
-        loadMoreBtn.style.display = 'none';
-      } else {
-        loadMoreBtn.style.display = 'inline-flex';
-      }
-    }
-
-    // Apply current tag filter from URL (for client-side tag filtering on static pages)
-    function applyTagFilter(articles) {
+    function getFilteredArticles() {
       const params = new URLSearchParams(window.location.search);
       const tagParam = params.get('tag');
-      if (!tagParam) return; // No tag filter, show all
-
-      articles.forEach(article => {
+      if (!tagParam) return getAllArticles();
+      
+      return getAllArticles().filter(article => {
         const articleTags = (article.dataset.tags || '').split(',').map(t => t.trim().toLowerCase());
-        const hasTag = articleTags.includes(tagParam.toLowerCase());
-        // Reset display first (will be overridden by visibleCount logic)
-        if (hasTag) {
-          article.style.display = '';
-        } else {
-          article.style.display = 'none';
-        }
+        return articleTags.includes(tagParam.toLowerCase());
       });
     }
 
-    // Get all article elements
-    function getArticles() {
-      return Array.from(postsContainer.querySelectorAll('article'));
+    function updateLoadMoreVisibility() {
+      const filtered = getFilteredArticles();
+      const hiddenCount = filtered.filter(a => a.style.display === 'none').length;
+      loadMoreBtn.style.display = hiddenCount > 0 ? 'inline-flex' : 'none';
     }
 
-    // Show/hide load more button based on visible articles
-    function updateLoadMoreVisibility(articles) {
-      const hiddenArticles = articles.filter(a => a.style.display === 'none');
-      if (hiddenArticles.length === 0) {
-        loadMoreBtn.style.display = 'none';
-      } else {
-        loadMoreBtn.style.display = 'inline-flex';
-      }
-    }
+    // ========== CORE FUNCTIONS ==========
+    function getFilteredAndSorted() {
+      const params = new URLSearchParams(window.location.search);
+      const sortSelect = document.getElementById('sort-select');
+      const sortValue = sortSelect ? sortSelect.value : 'date-desc';
 
-    // Apply sorting and reset visibility
-    function applySort(articles, sortValue) {
-      articles.sort((a, b) => {
+      // 1. Filter by tag
+      let articles = getFilteredArticles();
+      
+      // 2. Sort
+      const sorted = [...articles].sort((a, b) => {
         const dateA = new Date(a.dataset.date).getTime();
         const dateB = new Date(b.dataset.date).getTime();
         const titleA = a.dataset.title.toLowerCase();
@@ -525,157 +507,72 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
         const readingA = parseInt(a.dataset.readingTime || '0', 10);
         const readingB = parseInt(b.dataset.readingTime || '0', 10);
 
+        const sortValue = sortSelect ? sortSelect.value : 'date-desc';
         switch (sortValue) {
-          case 'date-asc':
-            return dateA - dateB;
-          case 'date-desc':
-            return dateB - dateA;
-          case 'title-asc':
-            return titleA.localeCompare(titleB);
-          case 'title-desc':
-            return titleB.localeCompare(titleA);
-          case 'reading-asc':
-            return parseInt(a.dataset.readingTime || '0', 10) - parseInt(b.dataset.readingTime || '0', 10);
-          case 'reading-desc':
-            return parseInt(b.dataset.readingTime || '0', 10) - parseInt(a.dataset.readingTime || '0', 10);
-          default:
-            return dateB - dateA;
+          case 'date-asc': return dateA - dateB;
+          case 'date-desc': return dateB - dateA;
+          case 'title-asc': return a.dataset.title.localeCompare(b.dataset.title);
+          case 'title-desc': return b.dataset.title.localeCompare(a.dataset.title);
+          case 'reading-asc': return parseInt(a.dataset.readingTime || '0', 10) - parseInt(b.dataset.readingTime || '0', 10);
+          case 'reading-desc': return parseInt(b.dataset.readingTime || '0', 10) - parseInt(a.dataset.readingTime || '0', 10);
+          default: return dateB - dateA;
         }
       });
 
-      // Re-append sorted articles
-      articles.forEach((article, index) => {
-        postsContainer.appendChild(article);
+      // Re-append in sorted order
+      sorted.forEach(article => postsContainer.appendChild(article));
+
+      // Apply pagination: first N visible
+      sorted.forEach((article, index) => {
+        article.style.display = index < 6 ? 'block' : 'none';
       });
+
+      return sorted;
     }
 
-    // Apply tag filter from URL
-    function applyTagFilterFromURL(articles) {
-      const params = new URLSearchParams(window.location.search);
-      const tagParam = params.get('tag');
-      if (!tagParam) return articles; // No tag filter
-
-      return articles.filter(article => {
-        const articleTags = (article.dataset.tags || '').split(',').map(t => t.trim().toLowerCase());
-        return articleTags.includes(tagParam.toLowerCase());
+    function refreshView() {
+      const sorted = getFilteredAndSorted();
+      // Show first 6
+      sorted.forEach((article, index) => {
+        article.style.display = index < 6 ? 'block' : 'none';
       });
+      updateLoadMoreVisibility();
     }
 
-    // Reset visible state based on current sort/tag
-    function resetVisibility(articles) {
-      const params = new URLSearchParams(window.location.search);
-      const hasTagFilter = params.has('tag');
-
-      articles.forEach((article, index) => {
-        // First apply tag filter
-        let show = true;
-        if (hasTagFilter) {
-          const tagParam = new URLSearchParams(window.location.search).get('tag');
-          const articleTags = (article.dataset.tags || '').split(',').map(t => t.trim().toLowerCase());
-          show = articleTags.includes(tagParam.toLowerCase());
-        }
-
-        // Then apply pagination
-        if (show && index < postsPerPage) {
-          article.style.display = 'block';
-        } else {
-          article.style.display = 'none';
-        }
-      });
-      visibleCount = Math.min(postsPerPage, articles.filter(a => a.style.display !== 'none').length);
-      updateLoadMoreVisibility(articles);
+    function updateLoadMoreVisibility() {
+      const filtered = getFilteredArticles();
+      const hiddenCount = filtered.filter(a => a.style.display === 'none').length;
+      loadMoreBtn.style.display = hiddenCount > 0 ? 'inline-flex' : 'none';
     }
 
-    loadMoreBtn.addEventListener('click', () => {
-      const articles = getArticles();
-      const params = new URLSearchParams(window.location.search);
-      const hasTagFilter = params.has('tag');
-
-      for (let i = visibleCount; i < visibleCount + postsPerPage && i < articles.length; i++) {
-        const article = articles[i];
-        // Check tag filter
-        if (hasTagFilter) {
-          const tagParam = new URLSearchParams(window.location.search).get('tag');
-          const articleTags = (article.dataset.tags || '').split(',').map(t => t.trim().toLowerCase());
-          if (!articleTags.includes(tagParam.toLowerCase())) continue;
-        }
-        (article as HTMLElement).style.display = 'block';
-      }
-      visibleCount += postsPerPage;
-      updateLoadMoreVisibility(getArticles());
-    });
-
-    // Client-side sorting
+    // ========== EVENT HANDLERS ==========
+    // Sort dropdown
     const sortSelect = document.getElementById('sort-select');
     if (sortSelect) {
       sortSelect.addEventListener('change', () => {
-        const articles = getArticles();
-        const sortValue = sortSelect.value;
-
-        // Sort articles
-        articles.sort((a, b) => {
-          const dateA = new Date(a.dataset.date).getTime();
-          const dateB = new Date(b.dataset.date).getTime();
-          const titleA = a.dataset.title.toLowerCase();
-          const titleB = b.dataset.title.toLowerCase();
-          const readingA = parseInt(a.dataset.readingTime || '0', 10);
-          const readingB = parseInt(b.dataset.readingTime || '0', 10);
-
-          switch (sortValue) {
-            case 'date-asc':
-              return dateA - dateB;
-            case 'date-desc':
-              return dateB - dateA;
-          case 'title-asc':
-            return titleA.localeCompare(titleB);
-          case 'title-desc':
-            return titleB.localeCompare(titleA);
-          case 'reading-asc':
-            return parseInt(a.dataset.readingTime || '0', 10) - parseInt(b.dataset.readingTime || '0', 10);
-          case 'reading-desc':
-            return parseInt(b.dataset.readingTime || '0', 10) - parseInt(a.dataset.readingTime || '0', 10);
-          default:
-            return dateB - dateA;
-        }
+        refreshView();
       });
-
-      // Re-append sorted articles
-      articles.forEach((article, index) => {
-        postsContainer.appendChild(article);
-      });
-
-      // Reset visibility after sort
-      resetVisibility(getArticles());
-    });
-
-    loadMoreBtn.addEventListener('click', () => {
-      const articles = getArticles();
-      const params = new URLSearchParams(window.location.search);
-      const hasTagFilter = params.has('tag');
-
-      for (let i = visibleCount; i < visibleCount + postsPerPage && i < articles.length; i++) {
-        const article = articles[i];
-        // Check tag filter
-        if (hasTagFilter) {
-          const tagParam = params.get('tag');
-          const articleTags = (article.dataset.tags || '').split(',').map(t => t.trim().toLowerCase());
-          if (!articleTags.includes(tagParam.toLowerCase())) continue;
-        }
-        (article as HTMLElement).style.display = 'block';
-      }
-      visibleCount += postsPerPage;
-      updateLoadMoreVisibility(getArticles());
-    });
-
-    // Initialize: apply tag filter from URL if present, then reset visibility
-    const initialArticles = getArticles();
-    const params = new URLSearchParams(window.location.search);
-    if (params.has('tag')) {
-      // Tag filter will be applied by resetVisibility
     }
-    resetVisibility(initialArticles);
-  });
-</script>
+
+    // Load More button
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', () => {
+        const filtered = getFilteredArticles();
+        let shown = 0;
+        for (const article of filtered) {
+          if (article.style.display === 'none') {
+            article.style.display = 'block';
+            if (++shown >= 6) break;
+          }
+        }
+        updateLoadMoreVisibility();
+      });
+    }
+
+    // ========== INIT ==========
+    refreshView();
+  });</script>
 
 <style>
   /* Custom styles for line clamping */
