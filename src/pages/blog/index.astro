@@ -220,16 +220,15 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
             <label for="sort-select" class="sr-only">Sort articles</label>
             <select 
               id="sort-select"
-              onchange="window.location.href = window.location.pathname + '?tag=' + (new URLSearchParams(window.location.search)).get('tag') + '&sort=' + this.value"
               class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors appearance-none bg-no-repeat bg-right pr-10 cursor-pointer"
               style="background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E"); background-position: right 0.5rem center; background-size: 1.5em 1.5em;"
             >
-              <option value="date-desc" {selectedSort === 'date-desc' ? 'selected' : ''}>Newest First</option>
-              <option value="date-asc" {selectedSort === 'date-asc' ? 'selected' : ''}>Oldest First</option>
-              <option value="title-asc" {selectedSort === 'title-asc' ? 'selected' : ''}>Title A-Z</option>
-              <option value="title-desc" {selectedSort === 'title-desc' ? 'selected' : ''}>Title Z-A</option>
-              <option value="reading-asc" {selectedSort === 'reading-asc' ? 'selected' : ''}>Quickest Read</option>
-              <option value="reading-desc" {selectedSort === 'reading-desc' ? 'selected' : ''}>Longest Read</option>
+              <option value="date-desc">Newest First</option>
+              <option value="date-asc">Oldest First</option>
+              <option value="title-asc">Title A-Z</option>
+              <option value="title-desc">Title Z-A</option>
+              <option value="reading-asc">Quickest Read</option>
+              <option value="reading-desc">Longest Read</option>
             </select>
           </div>
 
@@ -292,7 +291,14 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
           <!-- Blog Posts List -->
           <div id="blog-posts-list">
             {mainPosts.map((post, idx) => (
-              <article class="mb-12" data-post-idx={idx} style={{ display: idx < 6 ? 'block' : 'none' }}>
+              <article 
+                class="mb-12" 
+                data-post-idx={idx} 
+                data-date={post.data.pubDate}
+                data-title={post.data.title}
+                data-reading-time={calculateReadingTime(post.body)}
+                style={{ display: idx < 6 ? 'block' : 'none' }}
+              >
                 <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="block group">
                   {typeof post.data.image === 'string' ? (
                     <div class="aspect-w-16 aspect-h-6 rounded-2xl overflow-hidden mb-4 bg-gray-100 dark:bg-gray-800">
@@ -456,18 +462,94 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
     // Load More functionality
     const postsPerPage = 6;
     let visibleCount = postsPerPage;
-    const posts = document.querySelectorAll('#blog-posts-list article');
+    const postsContainer = document.getElementById('blog-posts-list');
     const loadMoreBtn = document.getElementById('load-more-btn');
     if (!loadMoreBtn) return;
+
+    // Get all article elements
+    function getArticles() {
+      return Array.from(postsContainer.querySelectorAll('article'));
+    }
+
+    // Show/hide load more button based on visible articles
+    function updateLoadMoreVisibility(articles) {
+      const hiddenArticles = articles.filter(a => a.style.display === 'none');
+      if (hiddenArticles.length === 0) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-flex';
+      }
+    }
+
     loadMoreBtn.addEventListener('click', () => {
-      for (let i = visibleCount; i < visibleCount + postsPerPage && i < posts.length; i++) {
-        (posts[i] as HTMLElement).style.display = 'block';
+      const articles = getArticles();
+      for (let i = visibleCount; i < visibleCount + postsPerPage && i < articles.length; i++) {
+        (articles[i] as HTMLElement).style.display = 'block';
       }
       visibleCount += postsPerPage;
-      if (visibleCount >= posts.length) {
-        loadMoreBtn.style.display = 'none';
-      }
+      updateLoadMoreVisibility(articles);
     });
+
+    // Client-side sorting
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect) {
+      sortSelect.addEventListener('change', () => {
+        const articles = getArticles();
+        const sortValue = sortSelect.value;
+
+        // Sort articles
+        articles.sort((a, b) => {
+          const dateA = new Date(a.dataset.date).getTime();
+          const dateB = new Date(b.dataset.date).getTime();
+          const titleA = a.dataset.title.toLowerCase();
+          const titleB = b.dataset.title.toLowerCase();
+          const readingA = parseInt(a.dataset.readingTime || '0', 10);
+          const readingB = parseInt(b.dataset.readingTime || '0', 10);
+
+          switch (sortValue) {
+            case 'date-asc':
+              return dateA - dateB;
+            case 'date-desc':
+              return dateB - dateA;
+            case 'title-asc':
+              return titleA.localeCompare(titleB);
+            case 'title-desc':
+              return titleB.localeCompare(titleA);
+            case 'reading-asc':
+              return readingA - readingB;
+            case 'reading-desc':
+              return readingB - readingA;
+            default:
+              return dateB - dateA;
+          }
+        });
+
+        // Re-append sorted articles
+        articles.forEach((article, index) => {
+          postsContainer.appendChild(article);
+          // Reset visible count logic
+          if (index < postsPerPage) {
+            article.style.display = 'block';
+          } else {
+            article.style.display = 'none';
+          }
+        });
+        visibleCount = Math.min(postsPerPage, articles.length);
+        updateLoadMoreVisibility(articles);
+      });
+    }
+
+    loadMoreBtn.addEventListener('click', () => {
+      const articles = getArticles();
+      for (let i = visibleCount; i < visibleCount + postsPerPage && i < articles.length; i++) {
+        (articles[i] as HTMLElement).style.display = 'block';
+      }
+      visibleCount += postsPerPage;
+      updateLoadMoreVisibility(articles);
+    });
+
+    // Initialize visibility
+    updateLoadMoreVisibility(getArticles());
   });
 </script>
 
