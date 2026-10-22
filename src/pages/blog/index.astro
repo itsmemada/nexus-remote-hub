@@ -297,6 +297,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                 data-date={post.data.pubDate}
                 data-title={post.data.title}
                 data-reading-time={calculateReadingTime(post.body)}
+                data-tags={post.data.tags?.join(',') || ''}
                 style={{ display: idx < 6 ? 'block' : 'none' }}
               >
                 <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="block group">
