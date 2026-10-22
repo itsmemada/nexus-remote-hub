@@ -3,13 +3,38 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 
-// Get URL parameters for tag filtering
+// Get URL parameters for tag filtering and sorting
 const { searchParams } = Astro.url;
-const selectedTag = searchParams.get('tag');
+const selectedTag = searchParams.get(tag);
+const selectedSort = searchParams.get(sort) || date-desc;
 
 // Get all blog posts (excluding drafts) and sort by date
-const allPosts = await getCollection('blog', ({ data }) => !data.draft);
-let posts = [...allPosts].sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+const allPosts = await getCollection(blog, ({ data }) => !data.draft);
+let posts = [...allPosts];
+
+// Sort posts based on selected sort option
+switch (selectedSort) {
+  case date-asc:
+    posts.sort((a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf());
+    break;
+  case date-desc:
+    posts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+    break;
+  case title-asc:
+    posts.sort((a, b) => a.data.title.localeCompare(b.data.title));
+    break;
+  case title-desc:
+    posts.sort((a, b) => b.data.title.localeCompare(a.data.title));
+    break;
+  case reading-asc:
+    posts.sort((a, b) => calculateReadingTime(a.body) - calculateReadingTime(b.body));
+    break;
+  case reading-desc:
+    posts.sort((a, b) => calculateReadingTime(b.body) - calculateReadingTime(a.body));
+    break;
+  default:
+    posts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+}
 
 // Filter posts by tag if one is selected
 if (selectedTag) {
