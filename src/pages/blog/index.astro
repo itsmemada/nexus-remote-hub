@@ -5,31 +5,31 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 
 // Get URL parameters for tag filtering and sorting
 const { searchParams } = Astro.url;
-const selectedTag = searchParams.get(tag);
-const selectedSort = searchParams.get(sort) || date-desc;
+const selectedTag = searchParams.get('tag');
+const selectedSort = searchParams.get('sort') || 'date-desc';
 
 // Get all blog posts (excluding drafts) and sort by date
-const allPosts = await getCollection(blog, ({ data }) => !data.draft);
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 let posts = [...allPosts];
 
 // Sort posts based on selected sort option
 switch (selectedSort) {
-  case date-asc:
+  case 'date-asc':
     posts.sort((a, b) => new Date(a.data.pubDate).valueOf() - new Date(b.data.pubDate).valueOf());
     break;
-  case date-desc:
+  case 'date-desc':
     posts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
     break;
-  case title-asc:
+  case 'title-asc':
     posts.sort((a, b) => a.data.title.localeCompare(b.data.title));
     break;
-  case title-desc:
+  case 'title-desc':
     posts.sort((a, b) => b.data.title.localeCompare(a.data.title));
     break;
-  case reading-asc:
+  case 'reading-asc':
     posts.sort((a, b) => calculateReadingTime(a.body) - calculateReadingTime(b.body));
     break;
-  case reading-desc:
+  case 'reading-desc':
     posts.sort((a, b) => calculateReadingTime(b.body) - calculateReadingTime(a.body));
     break;
   default:
@@ -213,6 +213,24 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                 {tag}
               </a>
             ))}
+          </div>
+
+          <!-- Sort Dropdown -->
+          <div class="mb-8">
+            <label for="sort-select" class="sr-only">Sort articles</label>
+            <select 
+              id="sort-select"
+              onchange="window.location.href = window.location.pathname + '?tag=' + (new URLSearchParams(window.location.search)).get('tag') + '&sort=' + this.value"
+              class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors appearance-none bg-no-repeat bg-right pr-10 cursor-pointer"
+              style="background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E"); background-position: right 0.5rem center; background-size: 1.5em 1.5em;"
+            >
+              <option value="date-desc" {selectedSort === 'date-desc' ? 'selected' : ''}>Newest First</option>
+              <option value="date-asc" {selectedSort === 'date-asc' ? 'selected' : ''}>Oldest First</option>
+              <option value="title-asc" {selectedSort === 'title-asc' ? 'selected' : ''}>Title A-Z</option>
+              <option value="title-desc" {selectedSort === 'title-desc' ? 'selected' : ''}>Title Z-A</option>
+              <option value="reading-asc" {selectedSort === 'reading-asc' ? 'selected' : ''}>Quickest Read</option>
+              <option value="reading-desc" {selectedSort === 'reading-desc' ? 'selected' : ''}>Longest Read</option>
+            </select>
           </div>
 
           <!-- Featured Post -->
