@@ -3,22 +3,6 @@
     {
       "source": "/stats/:match*",
       "destination": "https://130.61.95.110/:match*"
-    },
-    {
-      "source": "/.well-known/matrix/server",
-      "destination": "/.well-known/matrix/server"
-    },
-    {
-      "source": "/.well-known/matrix/client",
-      "destination": "/.well-known/matrix/client"
-    },
-    {
-      "source": "/.well-known/matrix/server/",
-      "destination": "/.well-known/matrix/server"
-    },
-    {
-      "source": "/.well-known/matrix/client/",
-      "destination": "/.well-known/matrix/client"
     }
   ],
   "redirects": [
