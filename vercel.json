@@ -3,6 +3,10 @@
     {
       "source": "/stats/:match*",
       "destination": "https://130.61.95.110/:match*"
+    },
+    {
+      "source": "/.well-known/matrix/:match*",
+      "destination": "/.well-known/matrix/:match*"
     }
   ],
   "redirects": [
