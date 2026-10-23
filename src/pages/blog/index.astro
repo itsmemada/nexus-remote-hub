@@ -547,7 +547,6 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
 
     // ========== EVENT HANDLERS ==========
     // Sort dropdown
-    const sortSelect = document.getElementById('sort-select');
     if (sortSelect) {
       sortSelect.addEventListener('change', () => {
         refreshView();
@@ -555,7 +554,6 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
     }
 
     // Load More button
-    const loadMoreBtn = document.getElementById('load-more-btn');
     if (loadMoreBtn) {
       loadMoreBtn.addEventListener('click', () => {
         const filtered = getFilteredArticles();
