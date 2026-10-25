@@ -438,14 +438,14 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
 <script is:inline>
   // Search and filter functionality
   document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('search') as HTMLInputElement | null;
+    const searchInput = document.getElementById('search') ;
     if (!searchInput) return;
     
     const blogPosts = document.querySelectorAll('article');
     if (!blogPosts.length) return;
 
     function filterPosts() {
-      const searchTerm = searchInput!.value.toLowerCase().trim();
+      const searchTerm = searchInput.value.toLowerCase().trim();
       
       blogPosts.forEach(post => {
         const title = post.querySelector('h2, h3')?.textContent?.toLowerCase() || '';
