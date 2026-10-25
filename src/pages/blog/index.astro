@@ -435,7 +435,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
   </main>
 </Layout>
 
-<script>
+<script is:inline>
   // Search and filter functionality
   document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search') as HTMLInputElement | null;
