@@ -8,6 +8,7 @@ image:
   url: "/images/new-banner-2026-06-13-digital-nomad-visas-guide.jpg"
   alt: "Digital nomad visa guide — working legally from anywhere in 2026"
 draft: false
+featured: true
 ---
 
 # Digital Nomad Visas in 2026: The Definitive Guide to Working Legally From Anywhere

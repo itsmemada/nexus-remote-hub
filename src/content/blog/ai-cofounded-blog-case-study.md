@@ -7,7 +7,7 @@ author: "itsmemada & AI"
 image:
   url: "/images/new-banner-ai-cofounded-blog-case-study.jpg"
   alt: "AI-powered content creation — blog post written with AI assistance"
-featured: true
+featured: false
 ---
 
 ## Introduction: Why AI?

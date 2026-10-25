@@ -7,7 +7,7 @@ author: "itsmemada"
 image:
   url: "/images/new-banner-async-first-playbook.jpg"
   alt: "Team collaborating asynchronously with digital tools and communication platforms"
-featured: true
+featured: false
 ---
 
 ## The Meeting Problem Nobody Talks About
