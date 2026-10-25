@@ -234,7 +234,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
 
           <!-- Featured Post -->
           {featuredPost && (
-            <div class="mb-16 group card-hover">
+            <div id="featured-post" class="mb-16 group card-hover">
               <a href={`/blog/${featuredPost.id.replace(/\.md$/, '')}/`} class="block bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm">
                 <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden mb-6 bg-gray-100 dark:bg-gray-800">
                   {typeof featuredPost.data.image === 'string' ? (
@@ -537,6 +537,14 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
         article.style.display = index < 6 ? 'block' : 'none';
       });
       updateLoadMoreVisibility();
+
+      // Ukryj featured post, gdy aktywny jest filtr tagu albo sortowanie inne niz domyslne
+      const featuredEl = document.getElementById('featured-post');
+      if (featuredEl) {
+        const qs = new URLSearchParams(window.location.search);
+        const sortingActive = sortSelect && sortSelect.value !== 'date-desc';
+        featuredEl.style.display = (qs.has('tag') || sortingActive) ? 'none' : 'block';
+      }
     }
 
     function updateLoadMoreVisibility() {
