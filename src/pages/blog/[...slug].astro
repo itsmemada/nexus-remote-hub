@@ -106,7 +106,7 @@ const readingTime = post.data.readingTime ||
   image={typeof post.data.image === 'string' ? post.data.image : post.data.image?.url}
   canonical={`/blog/${post.id.replace(/\.md$/, '')}`}
   pubDate={post.data.pubDate}
-  updatedDate={post.data.updatedDate}
+  updatedDate={post.data.updatedDate ? new Date(post.data.updatedDate) : undefined}
   author={post.data.author}
 >
   <Breadcrumb items={[
