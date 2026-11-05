@@ -105,6 +105,9 @@ const readingTime = post.data.readingTime ||
   description={post.data.description}
   image={typeof post.data.image === 'string' ? post.data.image : post.data.image?.url}
   canonical={`/blog/${post.id.replace(/\.md$/, '')}`}
+  pubDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
+  author={post.data.author}
 >
   <Breadcrumb items={[
     { label: 'Home', href: '/' },
@@ -118,7 +121,7 @@ const readingTime = post.data.readingTime ||
     {/* Featured Image */}
     {typeof post.data.image === 'string' ? (
       <div class="relative h-64 md:h-96 w-full">
-        <img
+        <img loading="lazy"
           src={post.data.image}
           alt={('imageAlt' in post.data ? String(post.data.imageAlt) : post.data.title)}
           class="w-full h-full object-cover"
@@ -127,7 +130,7 @@ const readingTime = post.data.readingTime ||
       </div>
     ) : post.data.image ? (
       <div class="relative h-64 md:h-96 w-full">
-        <img
+        <img loading="lazy"
           src={post.data.image.url}
           alt={post.data.image.alt || post.data.title}
           class="w-full h-full object-cover"
@@ -234,7 +237,7 @@ const readingTime = post.data.readingTime ||
                 <article class="flex flex-col overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                   {typeof relatedPost.data.image === 'string' ? (
                     <div class="flex-shrink-0 h-48">
-                      <img 
+                      <img loading="lazy" 
                         class="w-full h-full object-cover" 
                         src={relatedPost.data.image} 
                         alt={('imageAlt' in relatedPost.data ? String(relatedPost.data.imageAlt) : relatedPost.data.title)}
@@ -242,7 +245,7 @@ const readingTime = post.data.readingTime ||
                     </div>
                   ) : relatedPost.data.image ? (
                     <div class="flex-shrink-0 h-48">
-                      <img 
+                      <img loading="lazy" 
                         class="w-full h-full object-cover" 
                         src={relatedPost.data.image.url} 
                         alt={relatedPost.data.image.alt || relatedPost.data.title}

@@ -241,12 +241,14 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                     <img 
                       src={featuredPost.data.image} 
                       alt={('imageAlt' in featuredPost.data ? String(featuredPost.data.imageAlt) : featuredPost.data.title)}
+                      loading="lazy"
                       class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : featuredPost.data.image ? (
                     <img 
                       src={featuredPost.data.image.url} 
                       alt={featuredPost.data.image.alt || featuredPost.data.title}
+                      loading="lazy"
                       class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : null}
@@ -306,6 +308,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                       <img 
                         src={post.data.image} 
                         alt={('imageAlt' in post.data ? String(post.data.imageAlt) : post.data.title)}
+                        loading="lazy"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     </div>
@@ -314,6 +317,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                       <img 
                         src={post.data.image.url} 
                         alt={post.data.image.alt || post.data.title}
+                        loading="lazy"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     </div>
@@ -322,6 +326,7 @@ const mainPosts = allPosts.filter(post => post.id !== featuredPost.id);
                       <img 
                         src="/placeholder.jpg" 
                         alt="No image available"
+                        loading="lazy"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     </div>

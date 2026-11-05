@@ -9,14 +9,22 @@ interface Props {
   description?: string;
   image?: string;
   canonical?: string;
+  pubDate?: Date;
+  updatedDate?: Date;
+  author?: string;
 }
 
 const { 
   title = 'Nexus Remote Hub', 
   description = 'Discover the best remote work tools, tips, and strategies for digital nomads and remote professionals',
   image,
-  canonical
+  canonical,
+  pubDate,
+  updatedDate,
+  author = 'Nexus Remote Hub'
 } = Astro.props;
+
+const isArticle = !!pubDate;
 
 const posts = await getCollection('blog');
 
@@ -46,7 +54,7 @@ const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}ima
     <link rel="stylesheet" href="/styles/base.css" />
     
     {/* Open Graph / Facebook */}
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={isArticle ? 'article' : 'website'} />
     <meta property="og:url" content={currentUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -56,6 +64,13 @@ const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}ima
     <meta property="og:image:alt" content={title} />
     <meta property="og:site_name" content="Nexus Remote Hub" />
     <meta property="og:locale" content="en_US" />
+    {isArticle && pubDate && (
+      <>
+        <meta property="article:published_time" content={pubDate.toISOString()} />
+        {updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
+        <meta property="article:author" content={author} />
+      </>
+    )}
 
     {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
@@ -94,7 +109,7 @@ const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}ima
     <meta name="generator" content={Astro.generator} />
     
     <!-- Umami Analytics -->
-    <script defer src="/stats/script.js" data-website-id="31ffaf81-b90b-41db-b763-41506ce07464" data-host-url="https://umami.nexusremotehub.com"></script>
+    <script defer src="/stats/script.js" crossorigin="anonymous" data-website-id="31ffaf81-b90b-41db-b763-41506ce07464" data-host-url="https://umami.nexusremotehub.com"></script>
 
     {/* JSON-LD Structured Data - Website */}
     <script type="application/ld+json" set:html={`{"@context":"https://schema.org","@type":"WebSite","name":"Nexus Remote Hub","url":"${siteUrl}","description":"Remote work strategies, digital nomad guides, and productivity insights.","author":{"@type":"Person","name":"Mada","url":"https://nexus404.pl"},"potentialAction":{"@type":"SearchAction","target":"${siteUrl}/blog?q={search_term_string}","query-input":"required name=search_term_string"}}`} />
