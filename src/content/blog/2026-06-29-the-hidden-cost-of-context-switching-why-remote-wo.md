@@ -8,8 +8,8 @@
 #    WRONG: description: Some "quote" here  →  RIGHT: description: "Some \"quote\" here"
 # 4. Tags must be a YAML array: tags: ["tag1", "tag2"]
 # 5. Image URL MUST point to a real file in public/images/ — NO placeholders allowed
-title: """The Hidden Cost of Context Switching: Why Remote Workers Lose 4 Hours a Day"""
-description: """Remote work eliminated the commute but created a new productivity killer: context switching. Every Slack notification, every \"quick question\" on Teams, every..."""
+title: "The Hidden Cost of Context Switching: Why Remote Workers Lose 4 Hours a Day"
+description: "Remote work eliminated the commute but created a new productivity killer: context switching. Every Slack notification, every \"quick question\" on Teams, every..."
 pubDate: 2026-06-29
 updatedDate: 2026-06-29
 tags: ["productivity", "remote work", "time management", "AI", "economics"]
