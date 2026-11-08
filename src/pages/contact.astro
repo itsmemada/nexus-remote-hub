@@ -139,7 +139,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="space-y-4">
           <!-- FAQ Item 1 -->
           <div class="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 overflow-hidden">
-            <button class="w-full px-6 py-5 text-left focus:outline-none">
+            <button type="button" id="faq-button-1" aria-expanded="false" aria-controls="faq-panel-1" class="w-full px-6 py-5 text-left focus:outline-none">
               <div class="flex items-center justify-between">
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-50">How quickly will I receive a response?</h3>
                 <svg class="h-6 w-6 text-gray-400 dark:text-gray-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,14 +147,14 @@ import Layout from '../layouts/Layout.astro';
                 </svg>
               </div>
             </button>
-            <div class="px-6 pb-5">
+            <div id="faq-panel-1" role="region" aria-labelledby="faq-button-1" class="px-6 pb-5">
               <p class="text-gray-600 dark:text-gray-400">We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call our support line.</p>
             </div>
           </div>
 
           <!-- FAQ Item 2 -->
           <div class="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 overflow-hidden">
-            <button class="w-full px-6 py-5 text-left focus:outline-none">
+            <button type="button" id="faq-button-2" aria-expanded="false" aria-controls="faq-panel-2" class="w-full px-6 py-5 text-left focus:outline-none">
               <div class="flex items-center justify-between">
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-50">Do you offer enterprise solutions?</h3>
                 <svg class="h-6 w-6 text-gray-400 dark:text-gray-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -162,14 +162,14 @@ import Layout from '../layouts/Layout.astro';
                 </svg>
               </div>
             </button>
-            <div class="px-6 pb-5">
+            <div id="faq-panel-2" role="region" aria-labelledby="faq-button-2" class="px-6 pb-5">
               <p class="text-gray-600 dark:text-gray-400">Yes, we offer custom enterprise solutions for teams of all sizes. Contact our sales team for a personalized demo and pricing.</p>
             </div>
           </div>
 
           <!-- FAQ Item 3 -->
           <div class="bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-900/50 overflow-hidden">
-            <button class="w-full px-6 py-5 text-left focus:outline-none">
+            <button type="button" id="faq-button-3" aria-expanded="false" aria-controls="faq-panel-3" class="w-full px-6 py-5 text-left focus:outline-none">
               <div class="flex items-center justify-between">
                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-50">What's your refund policy?</h3>
                 <svg class="h-6 w-6 text-gray-400 dark:text-gray-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -177,7 +177,7 @@ import Layout from '../layouts/Layout.astro';
                 </svg>
               </div>
             </button>
-            <div class="px-6 pb-5">
+            <div id="faq-panel-3" role="region" aria-labelledby="faq-button-3" class="px-6 pb-5">
               <p class="text-gray-600 dark:text-gray-400">We offer a 30-day money-back guarantee on all our plans. If you're not satisfied, we'll give you a full refund, no questions asked.</p>
             </div>
           </div>
@@ -199,7 +199,10 @@ import Layout from '../layouts/Layout.astro';
       button.addEventListener('click', () => {
         const content = button.nextElementSibling;
         const icon = button.querySelector('svg');
-        
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+        button.setAttribute('aria-expanded', String(!isExpanded));
+
         // Toggle the content
         if (content) {
           content.classList.toggle('hidden');

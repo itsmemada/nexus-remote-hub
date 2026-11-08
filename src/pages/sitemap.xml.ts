@@ -9,7 +9,7 @@ export async function GET() {
   const baseUrl = (import.meta.env.SITE || 'https://www.nexusremotehub.com').replace(/\/$/, '');
   
   // Static pages
-  const staticPages = [
+  const staticPages: Array<{ url: string; lastmod?: string; priority: number; changefreq: string }> = [
     { url: '/', priority: 1.0, changefreq: 'weekly' },
     { url: '/blog', priority: 0.9, changefreq: 'daily' },
     { url: '/about', priority: 0.7, changefreq: 'monthly' },
@@ -20,7 +20,7 @@ export async function GET() {
   // Blog posts
   const blogPages = posts.map((post) => ({
     url: `/blog/${post.id.replace(/\.md$/, '')}`,
-    lastmod: post.data.pubDate,
+    lastmod: post.data.pubDate instanceof Date ? post.data.pubDate.toISOString() : new Date(post.data.pubDate).toISOString(),
     priority: 0.8,
     changefreq: 'monthly' as const,
   }));
@@ -34,7 +34,7 @@ export async function GET() {
 ${allPages.map((page) => `
   <url>
     <loc>${baseUrl}${page.url}</loc>
-    ${page.lastmod ? `<lastmod>${page.lastmod.toISOString()}</lastmod>` : ''}
+    ${page.lastmod ? `<lastmod>${page.lastmod}</lastmod>` : ''}
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`).join('')}
@@ -45,4 +45,4 @@ ${allPages.map((page) => `
       'Content-Type': 'application/xml',
     },
   });
-} 
+}
