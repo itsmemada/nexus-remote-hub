@@ -6,7 +6,7 @@ updatedDate: 2026-11-12
 tags: ["gamedev", "typescript", "phaser", "godot", "cardnomad"]
 draft: false
 image:
-  url: /images/card-nomad-phaser-vs-godot-hero.svg
+  url: /images/card-nomad-phaser-vs-godot-hero.jpg
   alt: "Card Nomad — a Phaser 3 and TypeScript roguelike deck-builder in pre-alpha"
 ---
 
