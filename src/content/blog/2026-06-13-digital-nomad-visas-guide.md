@@ -241,9 +241,9 @@ The freedom is real. The paperwork is real too. Do both right.
 
 ### Related Reading
 
-- [The Workation Economics of 2026](/blog/workation-economics-2026) — How 2-week workations compare financially
+- [The Workation Economics of 2026](/blog/2026-06-06-workation-economics-2026) — How 2-week workations compare financially
 - [Countries for Remote Work in 2026](/blog/countries-remote-work-2026) — Infrastructure, internet, and cost of living by country
-- [The Remote Work Burnout Epidemic](/blog/remote-work-burnout-epidemic) — Managing wellbeing while working globally
+- [The Remote Work Burnout Epidemic](/blog/2026-06-05-remote-work-burnout-epidemic) — Managing wellbeing while working globally
 
 ---
 

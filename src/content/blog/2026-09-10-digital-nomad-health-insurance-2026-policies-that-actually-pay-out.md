@@ -294,6 +294,6 @@ Don't guess. Apply to:
 
 *Filed a claim recently? Got a denial overturned? Found a plan I missed? Drop a comment — I update this guide annually with reader data and my own claim history.*
 
-*Previous: [Digital Nomad Gear 2026: What Actually Survives 3 Years of Full-Time Travel](/blog/digital-nomad-gear-2026-what-actually-survives-three-years/) — the physical kit that keeps you working.*
+*Previous: [Digital Nomad Gear 2026: What Actually Survives 3 Years of Full-Time Travel](/blog/2026-09-03-digital-nomad-gear-2026-what-actually-survives-three-years/) — the physical kit that keeps you working.*
 
 *Next up: Digital Nomad Taxes 2026 — residency, double taxation treaties, the 183-day myth, and how to structure legally without a $500/hr advisor.*

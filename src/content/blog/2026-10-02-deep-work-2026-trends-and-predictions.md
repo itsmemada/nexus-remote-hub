@@ -144,4 +144,4 @@ The organizations figuring this out aren't posting about it on LinkedIn. They're
 
 ---
 
-*Want to go deeper? The [Deep Work Protocol Template](/resources/deep-work-protocol) gives you a copy-paste policy doc for your team. The [Energy Mapping Spreadsheet](/resources/energy-mapping) tracks your peaks for two weeks. Both free, no email required.*
+*Want to go deeper? The [Deep Work series](/blog/2026-10-02-deep-work-2026-trends-and-predictions/) gives you the full protocol, and a copy-paste policy doc is in the post itself.*

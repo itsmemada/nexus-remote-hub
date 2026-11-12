@@ -443,6 +443,6 @@ The nomads who thrive long-term aren't the ones finding "loopholes." They're the
 
 *Currently dealing with a residence dispute? Found a treaty benefit I missed? Planning a jurisdiction move? Comment below — I update this guide annually with reader cases and regulatory changes.*
 
-*Previous: [Digital Nomad Health Insurance 2026: The Policies That Actually Pay Out](/blog/digital-nomad-health-insurance-2026-policies-that-actually-pay-out/) — the coverage layer you need before tax optimization.*
+*Previous: [Digital Nomad Health Insurance 2026: The Policies That Actually Pay Out](/blog/2026-09-10-digital-nomad-health-insurance-2026-policies-that-actually-pay-out/) — the coverage layer you need before tax optimization.*
 
 *Next up: Digital Nomad Banking 2026 — multi-currency accounts, compliance-friendly banks, and how to move money without flags.*

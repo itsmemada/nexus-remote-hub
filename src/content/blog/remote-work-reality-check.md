@@ -50,14 +50,14 @@ I thought I knew enough to build websites for clients. I was wrong. There's a hu
 - I need to improve my debugging and problem-solving skills
 - Documentation and clean code matter more than I realized
 
-Take this blog, for example. I'm building it as a real project to learn and grow, and I've been documenting the process - including <a href="/posts/how-i-make-this-with-ai" class="inline-link">how I'm using AI to build and improve this blog</a>. It's one thing to read about best practices, but actually implementing them while building something real teaches you so much more.
+Take this blog, for example. I'm building it as a real project to learn and grow, and I've been documenting the process — including how I'm using AI to build and improve this blog. It's one thing to read about best practices, but actually implementing them while building something real teaches you so much more.
 
 ### My Learning Strategy
 Instead of trying to learn everything at once, I'm focusing on:
 1. **Building real projects** - Not just tutorials, but actual applications I can show potential clients
 2. **Understanding the business side** - Why clients need what they need, not just how to build it
 
-For example, I've been using AI to help me build and improve this very blog - you can read about <a href="/posts/how-i-make-this-with-ai" class="inline-link">how I'm using AI to build and improve this blog</a> and the lessons I'm learning along the way.
+For example, I've been using AI to help me build and improve this very blog — you can read about how I'm using AI to build and improve this blog and the lessons I'm learning along the way.
 
 ## What I'm Learning About Business
 

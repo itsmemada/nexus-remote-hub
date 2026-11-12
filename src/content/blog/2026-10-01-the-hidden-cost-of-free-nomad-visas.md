@@ -169,4 +169,4 @@ Read the fine print. Model the numbers. Then decide if the view from the balcony
 
 ---
 
-*Planning a nomad move? The Nexus Remote Hub newsletter breaks down visa changes, tax updates, and real-world cost data from nomads on the ground. [Subscribe here](/newsletter) — no spam, just signal.*
+*Planning a nomad move? The Nexus Remote Hub covers visa changes, tax updates, and real-world cost data from nomads on the ground — [see the latest](/blog/).*
