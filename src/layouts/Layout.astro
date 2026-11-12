@@ -15,12 +15,12 @@ interface Props {
 
 const { 
   title = 'Nexus Remote Hub', 
-  description = 'Discover the best remote work tools, tips, and strategies for digital nomads and remote professionals',
+  description = 'Real, first-person field notes on going remote — what actually works, with the numbers. Written by Mada with an AI co-writer.',
   image,
   canonical,
   pubDate,
   updatedDate,
-  author = 'Nexus Remote Hub'
+  author = 'Mada'
 } = Astro.props;
 
 const isArticle = !!pubDate;
@@ -82,7 +82,7 @@ const fullImageUrl = image ? new URL(image, siteUrl).toString() : `${siteUrl}ima
     
     {/* Additional SEO Meta Tags */}
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="itsmemada" />
+    <meta name="author" content="Mada" />
     <meta name="keywords" content="remote work, digital nomad, productivity, work from home" />
     <meta name="theme-color" content="#4f46e5" />
     <meta name="color-scheme" content="light" />
