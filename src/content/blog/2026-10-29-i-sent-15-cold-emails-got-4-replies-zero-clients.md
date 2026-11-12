@@ -1,6 +1,6 @@
 ---
 title: "I Sent 15 Cold Emails to Polish SMBs. Got 4 Replies, Zero Clients."
-description: "Real numbers from my first outbound campaign for Nexus404 — 15 emails, 26.7% reply rate, one interested lead, zero conversions. Here's the exact email I sent, what the replies said, and why I'm changing the offer."
+description: "My first outbound campaign for Nexus404 — 15 emails, 4 replies, one interested lead, zero conversions. Here's the exact email I sent, what the replies said, and why I'm changing the offer."
 pubDate: 2026-10-29
 updatedDate: 2026-10-29
 tags: ["smallbusiness", "freelance", "sales", "nexus404"]
@@ -14,7 +14,7 @@ October 2026. I sat at my desk in Warsaw with a CSV of 1,360 Polish companies th
 
 From that 1,360, I manually verified 53 companies. Thirty-seven had real, exploitable SSL issues — expired certs, mismatched domains, self-signed certificates on production stores. Fifteen were false positives (Cloudflare's flexible SSL confusing the scanner). One was ambiguous. I picked 15 from the verified 37, wrote a template that mentioned their specific domain and the exact error I saw, and hit send. No tracking pixels, no follow-up sequence, no "bumping" emails. Just one honest message per company.
 
-## The Email That Got 26.7% Reply Rate
+## The Email That Got 4 Replies (Out of 15)
 
 Here is the exact email I sent, with the company-specific parts in brackets:
 
@@ -22,7 +22,7 @@ Here is the exact email I sent, with the company-specific parts in brackets:
 >
 > Hi [Name from LinkedIn or "Team"],
 >
-> I checked [domain.pl] and the SSL certificate expired on [date]. Browsers show "Not Secure" — Chrome 118+ treats this as a hard error on checkout pages.
+> I checked [domain.pl] and the SSL certificate expired on [date]. Browsers show "Not Secure" — on every page, not just checkout, because an expired certificate triggers a full-page warning before the site even loads.
 >
 > I run Nexus404, a small shop building and fixing websites for Polish micro-businesses. Fixed-price SSL repair: 150 PLN one-time + 30 PLN/month for monitoring and auto-renewal. No retainer, no upsell.
 >
@@ -32,7 +32,7 @@ Here is the exact email I sent, with the company-specific parts in brackets:
 > Mada
 > nexus404.pl
 
-Four companies replied within 48 hours. Three said "we have a guy for that" or "our agency handles it." One asked for a call — a 12-person e-commerce company in Poznań running PrestaShop on a shared host. Their cert had been expired for 47 days. They wanted to know if 150 PLN covered the whole chain or just the leaf certificate. I explained it covers the full chain, Let's Encrypt automation, and 30-day monitoring. They said they'd discuss internally and get back. They never did.
+Four companies replied within 48 hours. Three said "we have a guy for that" or "our agency handles it." One asked for a call — a small e-commerce shop in a mid-sized Polish city, running on a shared host. Their cert had been expired for over six weeks. They wanted to know if 150 PLN covered the whole chain or just the leaf certificate. I explained it covers the full chain, Let's Encrypt automation, and 30-day monitoring. They said they'd discuss internally and get back. They never did.
 
 ## The Verification Layer That Changed Everything
 
@@ -43,7 +43,7 @@ The breakdown of the 53 verified:
 - 15 false positives (Cloudflare flexible SSL, HSTS preload quirks)
 - 1 ambiguous (cert valid but chain incomplete on mobile only)
 
-This cost me roughly 6 hours of manual `openssl s_client -connect` checks and spreadsheet work. The 15 emails took another 45 minutes to personalize and send. Total time investment: ~7 hours for a 26.7% reply rate and zero revenue.
+This cost me roughly 6 hours of manual `openssl s_client -connect` checks and spreadsheet work. The 15 emails took another 45 minutes to personalize and send. Total time investment: ~7 hours for four replies and zero revenue. A 26.7% reply rate is a real number, but on a sample of 15 it's an anecdote, not a metric — I'm calling it out because it would be easy to round it up into a success story.
 
 ## Pricing That Doesn't Work for Micro-SMBs
 
@@ -62,8 +62,8 @@ The next batch goes out this week. Two hundred companies from the remaining veri
 3. **No "happy to share curl output"**: That line got zero follow-up questions. It felt helpful but added noise.
 4. **Verification from PC only**: The VPS script is deprecated for Polish targets. I'll run the checker locally via SSH tunnel to my home machine.
 
-The goal isn't a higher reply rate — it's a higher *qualified* reply rate. Four replies with three "we have a guy" and one ghost is a signal, not a win. If the 99/99 test moves even one company to a paid SSL fix, the unit economics work: 7 hours for 53 verifications scales to ~26 hours for 200. At 99 PLN per close, I need 2-3 clients to break even on time valued at 150 PLN/hour.
+The goal isn't a higher reply rate — it's a higher *qualified* reply rate. Four replies with three "we have a guy" and one ghost is a signal, not a win. And the math is honest about that: 7 hours for 53 verifications scales to ~26 hours for 200. At 150 PLN/hour, that's 3,900 PLN of my time. At 99 PLN per close, breaking even means nearly 40 clients out of 200 emails — a 20% conversion rate that no cold-email campaign gets. So I'm not treating these 200 as a revenue line. They're an experiment to find out whether this channel can feed the only thing that has ever actually paid: referrals. Right now, 100% of my documented revenue comes from word of mouth.
 
 ---
 
-Cold email isn't dead. But "spray and pray" with a generic template is. The 26.7% reply rate came from one thing: I knew exactly what was broken on their site before I wrote the first word. That specificity cost me 7 hours. The next 200 will cost 26. We'll see if the math holds.
+Cold email isn't dead. But "spray and pray" with a generic template is. The four replies came from one thing: I knew exactly what was broken on their site before I wrote the first word. That specificity cost me 7 hours. The next 200 will cost 26. We'll see if the math holds — or if it confirms what the referrals already told me.
