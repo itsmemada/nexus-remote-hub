@@ -5,6 +5,7 @@ pubDate: 2026-10-01
 updatedDate: 2026-10-01
 tags: ["digital nomad", "remote work", "travel", "data"]
 draft: false
+featured: true
 image:
   url: /images/new-banner-2026-10-01-digital-nomad-2026-trends-and-predictions.jpg
   alt: "Digital nomad working from a cafe in Southeast Asia"
