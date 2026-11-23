@@ -47,7 +47,7 @@ This cost me roughly 6 hours of manual `openssl s_client -connect` checks and sp
 
 ## Pricing That Doesn't Work for Micro-SMBs
 
-My base price list lives on nexus404.pl: landing page from 990 PLN, company site from 1,490 PLN, WooCommerce shop from 2,990 PLN. The SSL repair at 150 + 30/month was meant as a low-friction entry product — a "foot in the door" to upsell a redesign later.
+My base price list lives on [nexus404.pl](https://nexus404.pl/?utm_source=nexusremotehub&utm_medium=blog&utm_campaign=cold-emails&utm_content=i-sent-15-cold-emails): landing page from 990 PLN, company site from 1,490 PLN, WooCommerce shop from 2,990 PLN. The SSL repair at 150 + 30/month was meant as a low-friction entry product — a "foot in the door" to upsell a redesign later.
 
 The Poznań lead's question revealed the flaw: 150 PLN is too high for a "try me" purchase but too low to signal quality. A micro-business owner in Poland thinks in monthly costs. 30 PLN/month sounds like a subscription they'll forget to cancel. 150 PLN upfront sounds like a risk. The sweet spot I'm testing next: 99 PLN one-time + 99 PLN/month for three months prepaid. Same annual revenue (495 vs 510 PLN), but the psychology shifts from "subscription" to "quarterly service."
 
